@@ -1,0 +1,73 @@
+<!--PERFIL: Poner @nombreusuario; quitar email; poner bio
+    BOTON: editar perfil || guardados
+    MÓDULOS: apuntes (ver mis apuntes) || progreso (le falta tanto % para llegar a perfil estelar || 
+             prácticas (ver mis prácticas) || clases (gestionar mis clases) 
+             mis valoraciones (estrellitas)-->
+
+             <!DOCTYPE html>
+             <html lang="es">
+             <head>
+                 <meta charset="UTF-8">
+                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                 <title>Página de Perfil</title>
+                 <link rel="stylesheet" href="styles.css">
+             </head>
+             <body>
+                 <div class="profile-container">
+                     <header>
+                         <div class="profile-header">
+                             <div class="profile-image">
+                                 <img src="profile-picture.jpg" alt="Imagen de Perfil">
+                             </div>
+                             <div class="profile-info">
+                                 <h2>Carlos García</h2>
+                                 <p>@carlosg123</p>
+                                 <p>Estudiante de Ingeniería Informática</p>
+                             </div>
+                             <div class="edit-profile">
+                                 <img src="pencil-icon.png" alt="Editar Perfil">
+                                 <a href="#" class="edit-link">Editar perfil</a>
+                             </div>
+                         </div>
+                     </header>
+                     
+                     <div class="content">
+                         <div class="learning-section">
+                             <h2>Sigue aprendiendo</h2>
+                             <div class="video-card">
+                                 <img src="instructor.png" alt="Instructor Video">
+                                 <div class="video-info">
+                                     <h3>Módulo 1:</h3>
+                                     <p>Prompt Engineering - Orígenes de la IA</p>
+                                     <div class="buttons">
+                                         <a href="#" class="class-button">Ir a la clase</a>
+                                         <a href="#" class="all-classes-button">Todas las clases</a>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                         
+                         <div class="progress-section">
+                             <h2>Tu progreso</h2>
+                             <div class="progress-bar">
+                                 <div class="progress" style="width: 6%;"></div>
+                             </div>
+                             <p>Clases vistas: 6%</p>
+                             <p>Ejercicios presentados: 0%</p>
+                         </div>
+             
+                         <div class="campus-section">
+                             <h2>Campus Virtual</h2>
+                             <img src="campus_virtual.png" alt="Campus Virtual">
+                         </div>
+             
+                         <div class="event-section">
+                             <h2>Próximo evento</h2>
+                             <p>16 oct - 18:00 CET</p>
+                             <p>Masterclass con Itzelmo Aguilar: "Generación de Ingresos Pasivos con Imágenes IA"</p>
+                         </div>
+                     </div>
+                 </div>
+             </body>
+             </html>
+             
