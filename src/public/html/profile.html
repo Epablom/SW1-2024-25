@@ -14,33 +14,51 @@
     <link rel="stylesheet" href="../css/general.css">
     <link rel="stylesheet" href="../css/sidebar.css">
     <script defer src="../js/script.js"></script>
-
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
-<body>
-        <header class="section">
-            <button id="toggle-button" aria-label="Toggle Sidebar">☰</button>
-            <img src="../images/profile.webp" alt="Imagen de Perfil" class="profile-pic">
-            <div class="profile-info">
-                <h2>Carlos García</h2>
-                <p>@carlosg123<br>Estudiante de Ingeniería Informática</p>
-            </div>
-                <div class="edit-profile">
-                    <img src="pencil-icon.png" alt="Editar Perfil">
-                    <a href="#" class="edit-link">Editar perfil</a>
-                </div>
-        </header>
 
-        <aside class="sidebar" id="sidebar">
-            <img src="../images/profile.webp" alt="Profile" class="profile-pic">
-            <ul>
-              <li><a href="#">Perfil</a></li>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Home Personalizado</a></li>
-              <li><a href="#">Login/Logout</a></li>
-              <li><a href="#">Panel de Admin</a></li>
-              <li><a href="#">Chat</a></li>
-            </ul>
-          </aside>
+<body>
+    <label for="check">
+        <i class="fas fa-bars" id="btn"></i>
+        <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <aside class="sidebar">
+        <header>Menu</header>
+        <a href="perfil.html" class="active">
+            <span>Nombre Usuario</span>
+        </a>
+        <a href="cursos.html">
+            <i class="fas fa-book"></i>
+            <span>Cursos</span>
+        </a>
+        <a href="chats.html">
+            <i class="fas fa-comments"></i>
+            <span>Chats</span>
+        </a>
+        <a href="notificaciones.html">
+            <i class="fas fa-bell"></i>
+            <span>Notificaciones</span>
+        </a>
+        <a class="salir" href="index.html">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Salir</span>
+        </a>
+    </aside>
+
+    <header class="top-section">
+            
+        <img src="../images/profile.webp" alt="Imagen de Perfil" class="profile-pic">
+        <div class="profile-info">
+            <h2>Carlos García</h2>
+            <p>@carlosg123<br>Estudiante de Ingeniería Informática</p>
+        </div>
+            <div class="edit-profile">
+                <i class="fas fa-pencil-alt" alt="Editar Perfil"></i>
+                <a href="#" class="edit-link">Editar perfil</a>
+            </div>
+    </header>
+
+        
         
         <div class="content">
             <div class="sub-section">

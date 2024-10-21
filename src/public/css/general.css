@@ -7,15 +7,17 @@
 
 body {
   background-image: url('../images/background.webp');
-  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   background-position: center;
+  background-size: cover;
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
   color: white;
 }
 
-.section {
+.top-section {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -67,6 +69,13 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.section {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 .sub-section {
@@ -163,9 +172,24 @@ progress {
   }
   
   .box {
-    height: 50px;
     background-color: rgba(15, 15, 15, 0.7);
     border: 1px solid black;
+    text-align: left;
+  }
+
+  .box i {
+    font-size: 24px;
+    margin-right: 10px;
+    margin-left: 5px;
+  }
+
+  .box .fa-heart {
+    color: red;
+  }
+
+  .box img {
+    width: 100%;
+    object-fit: cover;
   }
   
   footer {
@@ -196,3 +220,6 @@ progress {
     margin: 5px 0;
   }
   
+  .tutor {
+    align-self: center;
+}

@@ -7,11 +7,42 @@
   <link rel="stylesheet" href="../css/general.css">
   <link rel="stylesheet" href="../css/sidebar.css">
   <script defer src="../js/script.js"></script>
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+
 
 </head>
 <body>
+
+  <input type="checkbox" id="check">
+  <label for="check">
+    <i class="fas fa-bars" id="btn"></i>
+    <i class="fas fa-times" id="cancel"></i>
+  </label>
+
+  <aside class="sidebar">
+    <header>Menu</header>
+    <a href="perfil.html" class="active">
+      <span>Nombre Usuario</span>
+    </a>
+    <a href="cursos.html">
+      <i class="fas fa-book"></i>
+      <span>Cursos</span>
+    </a>
+    <a href="chats.html">
+      <i class="fas fa-comments"></i>
+      <span>Chats</span>
+    </a>
+    <a href="notificaciones.html">
+      <i class="fas fa-bell"></i>
+      <span>Notificaciones</span>
+    </a>
+    <a class="salir" href="index.html">
+      <i class="fas fa-sign-out-alt"></i>
+      <span>Salir</span>
+    </a>
+  </aside>
+
   <header>
-    <button id="toggle-button" aria-label="Toggle Sidebar">☰</button>
     <!-- <img src="../images/profile.webp" alt="Profile" class="profile-pic"> -->
     <nav class="top-nav">
       <a href="#">Prod</a>
@@ -24,21 +55,10 @@
     </nav>
   </header>
 
-  <aside class="sidebar" id="sidebar">
-    <img src="../images/profile.webp" alt="Profile" class="profile-pic">
-    <ul>
-      <li><a href="#">Perfil</a></li>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Home Personalizado</a></li>
-      <li><a href="#">Login/Logout</a></li>
-      <li><a href="#">Panel de Admin</a></li>
-      <li><a href="#">Chat</a></li>
-    </ul>
-  </aside>
   <br><br>
-  <main class="sub-section">
+  <main class="section">
     <h1>Administración</h1>
-    <div class="º-box">
+    <div class="admin-box">
       <div class="box">
         <h2>Ejemplo</h2>
         <p>Aquí saldría una alerta</p>
@@ -62,28 +82,5 @@
       </div>
     </div>
   </main>
-
-  <!-- <footer>
-    <div class="social-icons">
-      <span>Iconos aquí</span>
-    </div>
-    <div class="footer-links">
-      <div>
-        <h3>Use cases</h3>
-        <a href="#">UI design</a>
-        <a href="#">UX design</a>
-      </div>
-      <div>
-        <h3>Explore</h3>
-        <a href="#">Design</a>
-        <a href="#">Prototyping</a>
-      </div>
-      <div>
-        <h3>Resources</h3>
-        <a href="#">Blog</a>
-        <a href="#">Best practices</a>
-      </div>
-    </div>
-  </footer> -->
 </body>
 </html>
