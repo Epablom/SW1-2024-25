@@ -18,6 +18,8 @@
 </head>
 
 <body>
+    
+    <input type="checkbox" id="check">
     <label for="check">
         <i class="fas fa-bars" id="btn"></i>
         <i class="fas fa-times" id="cancel"></i>
@@ -35,18 +37,17 @@
             <i class="fas fa-comments"></i>
             <span>Chats</span>
         </a>
-        <a href="notificaciones.html">
+            <a href="notificaciones.html">
             <i class="fas fa-bell"></i>
             <span>Notificaciones</span>
         </a>
-        <a class="salir" href="index.html">
+            <a class="salir" href="index.html">
             <i class="fas fa-sign-out-alt"></i>
             <span>Salir</span>
         </a>
     </aside>
 
     <header class="top-section">
-            
         <img src="../images/profile.webp" alt="Imagen de Perfil" class="profile-pic">
         <div class="profile-info">
             <h2>Carlos García</h2>
@@ -57,44 +58,36 @@
                 <a href="#" class="edit-link">Editar perfil</a>
             </div>
     </header>
-
         
-        
-        <div class="content">
-            <div class="sub-section">
-                <h2>Sigue aprendiendo</h2>
-                <div class="video-card">
-                    <img src="instructor.png" alt="Instructor Video">
-                    
-                    <div class="video-info">
-                        <h3>Módulo 1:</h3>
-                        <p>Prompt Engineering - Orígenes de la IA</p>
-                        <br> 
-                        <a href="#" class="button">Ir a la clase</a>
-                        <a href="#" class="button">Todas las clases</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="sub-section">
-                <h2>Tu progreso</h2>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 6%;"></div>
-                </div>
-                <p>Clases vistas: 6%</p>
-                <p>Ejercicios presentados: 0%</p>
-            </div>
-
-            <div class="sub-section">
-                <h2>Campus Virtual</h2>
-                <img src="campus_virtual.png" alt="Campus Virtual">
-            </div>
-
-            <div class="sub-section">
-                <h2>Próximo evento</h2>
-                <p>16 oct - 18:00 CET</p>
-                <p>Masterclass con Itzelmo Aguilar: "Generación de Ingresos Pasivos con Imágenes IA"</p>
-            </div>
+    <div class="container">
+        <div class="sub-section">
+            <h2>Apuntes</h2><br>
+            <button class="button"><a href="#" class="btn btn-primary">Ver mis apuntes</a></button>
+            <button class="button"><a href="#" class="btn btn-primary">Subir apuntes</a></button>
         </div>
+            
+        <div class="sub-section">
+            <h2>Tu progreso</h2><br>
+            <div class="progress-bar">
+                <div class="progress" style="width: 6%;"></div>
+            </div><br>
+            <p>Apuntes subidos: 0%</p>
+            <p>Prácticas subidas: 0%</p>
+            <p>Clases realizadas: 6%</p>
+        </div>
+
+        <div class="sub-section">
+            <h2>Prácticas</h2><br>
+            <button class="button"><a href="#" class="btn btn-primary">Ver mis prácticas</a></button>
+            <button class="button"><a href="#" class="btn btn-primary">Subir prácticas</a></button>
+        </div>
+        
+        <div class="sub-section">
+            <h2>Clases</h2><br>
+            <button class="button"><a href="#" class="btn btn-primary">Ver mis clases</a></button>
+            <button class="button"><a href="#" class="btn btn-primary">Gestionar mis clases</a></button>
+        </div>  
+    </div>  
+    
 </body>
 </html>
