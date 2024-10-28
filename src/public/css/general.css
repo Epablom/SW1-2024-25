@@ -210,6 +210,41 @@ h1 {
   margin-left: 800px;
 }
 
+
+.publication-box {
+  background-color: rgba(15, 15, 15, 0.7);
+  border: 1px solid black;
+  text-align: center;
+  padding: 40px;
+  border-radius: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  min-height: 600px; 
+}
+
+.publication-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.icon-container {
+  display: flex;
+  gap: 20px;
+}
+
+.icon-container i {
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.icon-container i:hover {
+  color: #6c63ff;
+}
+
 .text-area {
   width: 100%;
   height: 150px;
