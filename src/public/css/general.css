@@ -238,7 +238,7 @@ footer {
   align-self: center;
 }
 
-/* Estilos para los formularios de login y registro */
+/* Estilos para los formularios de login, registro y reseteo de contraseña */
 .form-section {
   background: rgba(0, 0, 0, 0.8);
   padding: 20px;
@@ -259,6 +259,12 @@ footer {
   text-align: center;
   margin-bottom: 15px;
   color: #6c63ff;
+}
+
+.form p {
+  text-align: center;
+  color: #ccc;
+  margin-bottom: 10px;
 }
 
 .form label {
@@ -299,4 +305,18 @@ button {
 
 button:hover {
   background-color: #694bff;
+}
+
+.form-footer {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.form-footer a {
+  color: #6c63ff;
+  text-decoration: none;
+}
+
+.form-footer a:hover {
+  color: #8c85ff;
 }
