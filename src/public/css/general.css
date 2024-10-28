@@ -320,3 +320,18 @@ button:hover {
 .form-footer a:hover {
   color: #8c85ff;
 }
+
+/* Estilo adicional para el botón "Sign in" en el menú de navegación */
+.sign-in-button {
+  background-color: #6c63ff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.sign-in-button:hover {
+  background-color: #694bff;
+}
