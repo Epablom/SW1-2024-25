@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <script defer src="../js/script.js"></script>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex; 
+            height: 100vh; 
+            flex-direction: column; 
+        }
+    </style>
+</head>
+
+<body>
+    
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fas fa-bars" id="btn"></i>
+        <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <aside class="sidebar">
+        <header>Menu</header>
+        <a href="profile.html">
+            <span>Mi perfil</span>
+        </a>        
+        <a href="index.html">
+            <i class="fas fa-book"></i>
+            <span>Noticias</span>
+        </a>
+        <a href="document.html">
+            <i class="fas fa-book"></i>
+            <span>Mis recursos</span>
+        </a>
+        <a class="active" href="messages.html">
+            <i class="fas fa-comments"></i>
+            <span>Chats</span>
+        </a>
+        <a class="salir" href="index.html">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Cerrar sesión</span>
+        </a>
+    </aside>
+
+    <header class="top-section-chat">
+        <h2>Juanestudioso</h2>
+    </header>
+        
+    <div class="chat-container">
+        <div class="chat-section">
+            <div class="message sender">Tremendo apuntes que me llevas amigo<span class = "message-time">7:04am</span></div>
+            <div class="message receiver">¿Estas interesado en mis apuntes?<span class = "message-time">7:04am</span></div>
+            <div class="message sender">eso te estaba diciendo crack<span class = "message-time">7:04am</span></div>
+            <div class="message receiver">a pues nada vamos hablando y a ver en que queda la cosa<span class = "message-time">7:04am</span></div>
+            <div class="message sender">eso te estaba diciendo crack<span class = "message-time">7:04am</span></div>
+            <div class="message receiver">a pues nada vamos hablando y a ver en que queda la cosa<span class = "message-time">7:04am</span></div>
+            <div class="message sender">eso te estaba diciendo crack<span class = "message-time">7:04am</span></div>
+            <div class="message receiver">a pues nada vamos hablando y a ver en que queda la cosa<span class = "message-time">7:04am</span></div>
+            <div class="message sender">eso te estaba diciendo crack<span class = "message-time">7:04am</span></div>
+            <div class="message receiver">a pues nada vamos hablando y a ver en que queda la cosa<span class = "message-time">7:04am</span></div>
+            <div class="message sender">eso te estaba diciendo crack<span class = "message-time">7:04am</span></div>
+            <div class="message receiver">a pues nada vamos hablando y a ver en que queda la cosa<span class = "message-time">7:04am</span></div>
+        </div>
+        <div class="chat-input-container">
+            <input type="text" class="chat-input" placeholder="Escribe tu mensaje...">
+            <button class="chat-button">Enviar</button>
+        </div>
+    </div>
+
+    <div class="chat-list">
+        <div class="chat-item">Juanestudioso</div>
+        <div class="chat-item">Manualo</div>
+        <div class="chat-item">Pepe CEU</div>
+        <div class="chat-item">LuisitoCS</div>
+        <div class="chat-item">Isabelita18</div>
+    </div>
+    
+</body>
+</html>
