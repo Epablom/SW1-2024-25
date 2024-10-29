@@ -85,6 +85,14 @@ body {
   margin-right: auto; 
 }
 
+.message-time {
+  font-size: 0.6em; 
+  color: #555; 
+  display: block; 
+  margin-bottom: 4px; 
+  text-align: right; 
+}
+
 .chat-input-container {
   align-items: center;
   background: #000000b3;
