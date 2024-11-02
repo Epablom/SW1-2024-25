@@ -23,13 +23,16 @@ document.addEventListener("DOMContentLoaded", function() {
             const username = document.querySelector("#usernameLogin").value;
             const password = document.querySelector("#passwordLogin").value;
 
-            if (username === "" && password === "") {
+            //Recuperamos los datos de usuario almacenados
+            const storedUsername = localStorage.getItem("username");
+            const storedPassword = localStorage.getItem("password");
+
+            if (username === storedUsername && password === storedPassword) {
                 localStorage.setItem("loggedIn", "true"); //guardamos para saber qué está logeado
-                window.location.href = "index.html";
+                window.location.href = "profile.html";
             } else {
                 alert("Nombre de usuario o contraseña incorrectos.");
             }
-            window.location.href = "index.html";
         });
     }
 
@@ -46,13 +49,64 @@ document.addEventListener("DOMContentLoaded", function() {
             const degree = document.querySelector("#degree").value;
             const course = document.querySelector("#course").value;
 
+            localStorage.setItem("username", username);
+            localStorage.setItem("password", password);
+            localStorage.setItem("email", email);
+            localStorage.setItem("university", university);
+            localStorage.setItem("faculty", faculty);
+            localStorage.setItem("degree", degree);
+            localStorage.setItem("course", course);
             localStorage.setItem("registered", "true"); //guardamos para saber que se ha registrado
-            alert("Registro realizo con éxito. Ahora puedes iniciar sesión.");
+            alert("Registro realizado con éxito. Ahora puedes iniciar sesión.");
 
             window.location.href = "login.html";
         });
     }
 
+    document.addEventListener("DOMContentLoaded", function() {
+        const editProfileForm = document.querySelector("#editProfileForm");
+        
+        const storedData = {
+            username: localStorage.getItem("username"),
+            password: localStorage.getItem("password"),
+            email: localStorage.getItem("email"),
+            university: localStorage.getItem("university"),
+            faculty: localStorage.getItem("faculty"),
+            degree: localStorage.getItem("degree"),
+            course: localStorage.getItem("course"),
+            biography: localStorage.getItem("biography"),
+        };
+    
+        //Rellenar el formulario con los datos guardados
+        for (const key in storedData) {
+            if (storedData[key]) {
+                document.querySelector(`#${key}`).value = storedData[key];
+            }
+        }
+    
+        editProfileForm.addEventListener("submit", function(event) {
+            event.preventDefault(); 
+            
+            const updatedData = { //Obtener valores actualizados
+                username: document.querySelector("#username").value,
+                password: document.querySelector("#password").value,
+                email: document.querySelector("#email").value,
+                university: document.querySelector("#university").value,
+                faculty: document.querySelector("#faculty").value,
+                degree: document.querySelector("#degree").value,
+                course: document.querySelector("#course").value,
+                biography: document.querySelector("#biography").value,
+            };
+    
+            //Guardar los datos en localStorage
+            for (const key in updatedData) {
+                localStorage.setItem(key, updatedData[key]);
+            }
+    
+            alert("Perfil actualizado correctamente.");
+        });
+    });
+    
     const logoutButton = document.querySelector("#logoutButton");
     if (logoutButton) {
         logoutButton.addEventListener("click", function() {
@@ -80,16 +134,19 @@ function validateForm() {
       alert("Por favor, introduzca una dirección de email válida.");
       return false;
     }
+
     return true;
 }
   
 function validateEmail() {
     let email = document.getElementById("email").value;
     let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
     if (!emailRegex.test(email)) {
       alert("Por favor, introduzca una dirección de email válida.");
       return false; 
     }
+
     return true; 
-  }
+}
   
