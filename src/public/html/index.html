@@ -3,22 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noticias</title>
+  <title>CEU Study Hub</title>
   <link rel="stylesheet" href="../css/general.css">
-  <link rel="stylesheet" href="../css/sidebar.css">
+  <!-- <link rel="stylesheet" href="../css/sidebar.css"> -->
   <script defer src="../js/script.js"></script>
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">  
   <link rel="icon" type="image/x-icon" href="https://www.ceu.es/favicon.ico">
 </head>
+
+<script>
+  const menuButton = document.getElementById('menuButton');
+  const sidebar = document.getElementById('sidebar');
+  const menuIcon = document.getElementById('menuIcon');
+  const content = document.getElementById('content');
+
+  menuButton.addEventListener('click', () => {
+      if (sidebar.classList.contains('visible')) {
+          sidebar.classList.remove('visible');
+          menuIcon.classList.remove('fa-times');
+          menuIcon.classList.add('fa-bars');
+      } else {
+          sidebar.classList.add('visible');
+          menuIcon.classList.remove('fa-bars');
+          menuIcon.classList.add('fa-times');
+      }
+  });
+
+  // Close sidebar when clicking outside
+  content.addEventListener('click', () => {
+      if (sidebar.classList.contains('visible')) {
+          sidebar.classList.remove('visible');
+          menuIcon.classList.remove('fa-times');
+          menuIcon.classList.add('fa-bars');
+      }
+  });
+</script>
+
 <body>
 
-  <input type="checkbox" id="check">
-  <label for="check">
-    <i class="fas fa-bars" id="btn"></i>
-    <i class="fas fa-times" id="cancel"></i>
-  </label>
-
-  <aside class="sidebar">
+  <!-- <aside class="sidebar">
     <header>Menu</header>
     <a href="profile.html" class="active">
         <span>Mi perfil</span>
@@ -35,19 +58,23 @@
         <i class="fas fa-comments"></i>
         <span>Chats</span>
     </a>
-  </aside>
+  </aside> -->
 
-  <header>
-    <nav class="top-nav">
-      <a href="#">Prod</a>
-      <a href="#">Solutions</a>
-      <a href="#">Community</a>
-      <a href="#">Resources</a>
-      <a href="#">Pricing</a>
-      <a href="#">Contact</a>
-      <button id="loginButton"><a href="login.html" class="edit-link">Sign in</a></button>
-    </nav>
-  </header>
+  <nav class="top-nav">
+    <button id="menuButton" class="menu-icon">
+        <i class="fas fa-bars" id="menuIcon"></i>
+    </button>
+    <p>Bienvenido a CEU Study Hub, ¡Comienza a compartir tus apuntes!</p>
+    <button id="loginButton"><a href="login.html" class="edit-link">Sign in</a></button>
+</nav>
+
+  <aside class="sidebar" id="sidebar">
+      <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Publicaciones</a></li>
+          <li><a href="#">Perfil</a></li>
+      </ul>
+  </aside>
 
   <br><br>
 
