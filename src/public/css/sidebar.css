@@ -80,7 +80,6 @@ a.active,a:hover{
   display: none;
 }
 label #btn,label #cancel{
-  position: absolute;
   left: 5px;
   cursor: pointer;
   color: #868686;
@@ -107,12 +106,12 @@ label #cancel{
   left: 0;
 }
 #check:checked ~ label #btn{
-  margin-left: 245px;
+  /* margin-left: 245px; */
   opacity: 0;
   visibility: hidden;
 }
 #check:checked ~ label #cancel{
-  margin-left: 245px;
+  /* margin-left: 245px; */
   opacity: 1;
   visibility: visible;
 }
