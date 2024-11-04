@@ -9,6 +9,24 @@
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="https://www.ceu.es/favicon.ico">
   <style>
+    .top-section {
+      display: flex;
+      overflow-x: auto;
+      white-space: nowrap;
+      background-color: #333; /* Color de fondo para resaltar los contactos */
+      padding: 10px;
+    }
+    .tutor {
+      display: inline-block;
+      margin-right: 20px;
+      text-align: center;
+      color: #fff;
+    }
+    .tutor img {
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+    }
     .main-content {
       display: flex;
       justify-content: center;
@@ -21,18 +39,9 @@
       background-color: #fff;
       border: 1px solid #ccc;
       margin: 20px 0;
-      padding: 15px;
       text-align: left;
     }
-    .ad-box {
-      background-color: #f4f4f4;
-      border: 1px solid #ccc;
-      margin: 20px 0;
-      padding: 15px;
-      text-align: center;
-      color: black; /* Color de las letras en negro */
-    }
-    .box img, .ad-box img {
+    .box img {
       width: 100%;
       height: auto;
     }
@@ -40,7 +49,10 @@
       background-color: #000;
       color: #fff;
       padding: 10px;
-      margin-top: 10px;
+    }
+    .content-details h3,
+    .content-details p {
+      margin: 5px 0;
     }
     .buttons {
       display: flex;
@@ -51,6 +63,18 @@
       cursor: pointer;
       font-size: 20px; /* Tamaño de los íconos */
       color: #fff; /* Color blanco para los íconos */
+    }
+    .ad-box {
+      background-color: #f4f4f4;
+      border: 1px solid #ccc;
+      margin: 20px 0;
+      padding: 15px;
+      text-align: center;
+      color: black; /* Color de las letras en negro */
+    }
+    .ad-box img {
+      width: 100%;
+      height: auto;
     }
   </style>
 </head>
@@ -73,18 +97,8 @@
       </ul>
   </aside>
 
-  <br><br>
-
-  <header class="top-section">
-    <div class="tutor">
-        <img src="../images/profile.webp" alt="Imagen de Perfil" class="profile-pic" width="100%">
-        <p>Carlos García</p>
-    </div>
-    <div class="tutor">
-        <img src="../images/profile.webp" alt="Imagen de Perfil" class="profile-pic" width="100%">
-        <p>Federico Pérez</p>
-    </div>
-    <!-- Más perfiles aquí -->
+  <header class="top-section" id="contactBar">
+    <!-- Contactos generados dinámicamente -->
   </header>
 
   <div class="main-content">
@@ -94,6 +108,25 @@
   </div>
 
   <script>
+    const contactBar = document.getElementById('contactBar');
+    const contacts = [
+      'Carlos García', 'Federico Pérez', 'Ana López', 'María Fernández', 
+      'Juan Sánchez', 'Laura Gómez', 'Pedro Martínez', 'Isabel Torres', 
+      'Sofía Ruiz', 'Miguel Ángel', 'Luis Ramírez', 'Clara Vázquez', 
+      'Daniela Herrera', 'Pablo Ibáñez', 'Cristina Morales', 'Javier Gómez'
+    ];
+
+    // Generar elementos de contacto
+    contacts.forEach(contact => {
+      const contactElement = document.createElement('div');
+      contactElement.className = 'tutor';
+      contactElement.innerHTML = `
+        <img src="../images/profile.webp" alt="Imagen de Perfil">
+        <p>${contact}</p>
+      `;
+      contactBar.appendChild(contactElement);
+    });
+
     const newsContainer = document.getElementById('newsContainer');
 
     // Función para generar contenido de noticias con la estructura original
@@ -105,11 +138,11 @@
         <div class="content-details">
           <h3>Titulo de la publicación</h3>
           <p>Subtitulo</p>
-          <div class="buttons">
-            <i class="fas fa-heart"></i>
-            <i class="fas fa-arrow-right"></i>
-            <i class="fas fa-save"></i>
-          </div>
+        </div>
+        <div class="buttons">
+          <i class="fas fa-heart"></i>
+          <i class="fas fa-arrow-right"></i>
+          <i class="fas fa-save"></i>
         </div>
       `;
       return newsItem;
@@ -139,3 +172,4 @@
 
 </body>
 </html>
+
