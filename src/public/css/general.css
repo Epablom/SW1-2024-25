@@ -34,15 +34,6 @@ body {
   justify-content: space-between;
 }
 
-.top-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: white;
-  padding: 0.5em;
-  position: relative;
-}
-
 .menu-icon {
   display: block;
   cursor: pointer;
@@ -115,11 +106,11 @@ body {
 .chat-section {
   flex: 1; 
   display: flex;
-  flex-direction: column; 
-  overflow-y: auto; 
+  flex-direction: column;
   padding: 10px 0; 
   scrollbar-width: thin; /* Puede ser 'auto' o 'thin' */
   scrollbar-color: rgba(255, 255, 255, 0.5) rgba(0, 0, 0, 0.7);
+  /*overflow-y: auto;  para tener un scroll bar luego en chat*/
 }
 
 .message {
@@ -319,12 +310,6 @@ body {
   border-radius: 5px;
 }
 
-.progress {
-  background-color: #6c63ff;
-  height: 100%;
-  border-radius: 5px;
-}
-
 .campus-section img {
   width: 100%;
   border-radius: 10px;
@@ -397,19 +382,6 @@ body {
   font-size: 35px;
   color: #ff5252;
   margin-left: 800px;
-}
-
-
-.publication-box {
-  background-color: rgba(15, 15, 15, 0.7);
-  border: 1px solid black;
-  text-align: center;
-  padding: 40px;
-  border-radius: 10px;
-  width: 100%;
-  box-sizing: border-box;
-  margin-bottom: 20px;
-  min-height: 600px; 
 }
 
 .publication-header {
