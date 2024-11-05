@@ -401,6 +401,13 @@ button a {
   color: red;
 }
 
+.box .fa-arrow-right {
+  color: red;
+}
+.box .fa-save {
+  color: red;
+}
+
 .box img {
   width: 100%;
   object-fit: cover;

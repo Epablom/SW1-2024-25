@@ -8,40 +8,88 @@
   <link rel="stylesheet" href="../css/bars.css">
   <link rel="stylesheet" id="themeStylesheet" href="../css/dark.css">
   <script defer src="../js/script.js"></script>
-  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">  
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="https://www.ceu.es/favicon.ico">
+  <style>
+    .top-section {
+      display: flex;
+      overflow-x: auto;
+      white-space: nowrap;
+      background-color: #333; /* Color de fondo para resaltar los contactos */
+      padding: 10px;
+    }
+    .tutor {
+      display: inline-block;
+      margin-right: 20px;
+      text-align: center;
+      color: #fff;
+    }
+    .tutor img {
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+    }
+    .main-content {
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+    .news-container {
+      width: 60%; /* Ajusta el ancho según tus necesidades */
+    }
+    .box {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      margin: 20px 0;
+      text-align: left;
+    }
+      .box img {
+      width: 100%;
+      height: auto;
+    }
+    .content-details {
+      background-color: #000;
+      color: #fff;
+      padding: 10px;
+    }
+    .content-details h3,
+    .content-details p {
+      margin: 5px 0;
+    }
+    .buttons {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 10px;
+    }
+    .buttons i {
+      cursor: pointer;
+      font-size: 20px; /* Tamaño de los íconos */
+      color: #fff; /* Color blanco para los íconos */
+    }
+    .ad-box {
+      background-color: #f4f4f4;
+      border: 1px solid #ccc;
+      margin: 20px 0;
+      padding: 15px;
+      text-align: center;
+      color: black; /* Color de las letras en negro */
+    }
+    .ad-box img {
+      width: 100%;
+      height: auto;
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- <aside class="sidebar">
-    <header>Menu</header>
-    <a href="profile.html" class="active">
-        <span>Mi perfil</span>
-    </a>        
-    <a href="index.html">
-        <i class="fas fa-book"></i>
-        <span>Noticias</span>
-    </a>
-    <a href="resources.html">
-        <i class="fas fa-book"></i>
-        <span>Mis recursos</span>
-    </a>
-    <a href="messages.html">
-        <i class="fas fa-comments"></i>
-        <span>Chats</span>
-    </a>
-  </aside> -->
-
-  <nav>
-    <button id="menuButton" class="icon">
+  <nav class="top-nav">
+    <button id="menuButton" class="menu-icon">
         <i class="fas fa-bars" id="menuIcon"></i>
     </button>
     <p>Bienvenido a CEU Study Hub, ¡Comienza a compartir tus apuntes!</p>
-    <button id="loginButton"><a href="login.html">Sign in</a></button>
+    <button id="loginButton"><a href="login.html" class="edit-link">Sign in</a></button>
   </nav>
-
-
 
   <aside class="sidebar" id="sidebar">
     <header>Menu</header>
@@ -79,107 +127,83 @@
   
   </aside>
 
-  <br><br>
-  
-  <header class="top-section">
-    <div class="tutor">
-        <img src="../images/profile.webp" alt="Imagen de Perfil" class="profile-pic" width="100%">
-        <p>Carlos García</p>
-    </div>
-    <div class="tutor">
-        <img src="../images/profile.webp" alt="Imagen de Perfil" class="profile-pic" width="100%">
-        <p>Federico Pérez</p>
-    </div>
-    <div class="tutor">
-        <img src="../images/profile.webp" alt="Imagen de Perfil" class="profile-pic">
-        <p>Carlos García</p>
-    </div>
-    <div class="tutor">
-        <img src="../images/profile.webp" alt="Imagen de Perfil" class="profile-pic">
-        <p>Federico Pérez</p>
-    </div>
-    <div class="tutor">
-        <img src="../images/profile.webp" alt="Imagen de Perfil" class="profile-pic">
-        <p>Carlos García</p>
-    </div>
-    <div class="tutor">
-        <img src="../images/profile.webp" alt="Imagen de Perfil" class="profile-pic">
-        <p>Federico Pérez</p>
-    </div>
-    <div class="tutor">
-        <img src="../images/profile.webp" alt="Imagen de Perfil" class="profile-pic">
-        <p>Carlos García</p>
-    </div>
-    <div class="tutor">
-        <img src="../images/profile.webp" alt="Imagen de Perfil" class="profile-pic">
-        <p>Federico Pérez</p>
-    </div>
-    <div class="tutor">
-        <img src="../images/profile.webp" alt="Imagen de Perfil" class="profile-pic">
-        <p>Carlos García</p>
-    </div>
-    <div class="tutor">
-        <img src="../images/profile.webp" alt="Imagen de Perfil" class="profile-pic">
-        <p>Federico Pérez</p>
-    </div>
+  <header class="top-section" id="contactBar">
+    <!-- Contactos generados dinámicamente -->
   </header>
 
-  <main class="section">
-    <h1>Noticias</h1>
-    <h3>Aquí veras las noticias recomendadas para ti</h3>
-    <br>
-      <div class="box">
-        <img src="../images/publicacion.webp" alt="Publicación">
-        <h3>Titulo de la publicación</h3>
-        <p>Subtitulo</p>
-        <i class="fas fa-heart"></i>
-        <i class="fas fa-arrow-right"></i>
-        <i class="fas fa-save"></i>
-      </div>
-      <br>
-      <div class="box">
-        <img src="../images/publicacion.webp" alt="Publicación">
-        <h3>Titulo de la publicación</h3>
-        <p>Subtitulo</p>
-        <i class="fas fa-heart"></i>
-        <i class="fas fa-arrow-right"></i>
-        <i class="fas fa-save"></i>
-      </div>
-      <br>
-      <div class="box">
-        <img src="../images/publicacion.webp" alt="Publicación">
-        <h3>Titulo de la publicación</h3>
-        <p>Subtitulo</p>
-        <i class="fas fa-heart"></i>
-        <i class="fas fa-arrow-right"></i>
-        <i class="fas fa-save"></i>
-      </div>
-      <br>
-      <div class="box">
-        <img src="../images/publicacion.webp" alt="Publicación">
-        <h3>Titulo de la publicación</h3>
-        <p>Subtitulo</p>
-        <i class="fas fa-heart"></i>
-        <i class="fas fa-arrow-right"></i>
-        <i class="fas fa-save"></i>
-      </div>
-      <br>
-      <div class="box">
-        <img src="../images/publicacion.webp" alt="Publicación">
-        <h3>Titulo de la publicación</h3>
-        <p>Subtitulo</p>
-        <i class="fas fa-heart"></i>
-        <i class="fas fa-arrow-right"></i>
-        <i class="fas fa-save"></i>
-      </div>
-    </main>
+  <div class="main-content">
+    <div class="news-container" id="newsContainer">
+      <!-- Noticias y anuncios generados dinámicamente -->
+    </div>
+  </div>
 
   <script>
+    const contactBar = document.getElementById('contactBar');
+    const contacts = [
+      'Carlos García', 'Federico Pérez', 'Ana López', 'María Fernández', 
+      'Juan Sánchez', 'Laura Gómez', 'Pedro Martínez', 'Isabel Torres', 
+      'Sofía Ruiz', 'Miguel Ángel', 'Luis Ramírez', 'Clara Vázquez', 
+      'Daniela Herrera', 'Pablo Ibáñez', 'Cristina Morales', 'Javier Gómez'
+    ];
+
+    // Generar elementos de contacto
+    contacts.forEach(contact => {
+      const contactElement = document.createElement('div');
+      contactElement.className = 'tutor';
+      contactElement.innerHTML = `
+        <img src="../images/profile.webp" alt="Imagen de Perfil">
+        <p>${contact}</p>
+      `;
+      contactBar.appendChild(contactElement);
+    });
+
+    const newsContainer = document.getElementById('newsContainer');
+
+    // Función para generar contenido de noticias con la estructura original
+    function createNewsItem(index) {
+      const newsItem = document.createElement('div');
+      newsItem.className = 'box';
+      newsItem.innerHTML = `
+        <img src="../images/publicacion.webp" alt="Publicación">
+        <div class="content-details">
+          <h3>Titulo de la publicación</h3>
+          <p>Subtitulo</p>
+        </div>
+        <div class="buttons">
+          <i class="fas fa-heart"></i>
+          <i class="fas fa-arrow-right"></i>
+          <i class="fas fa-save"></i>
+        </div>
+      `;
+      return newsItem;
+    }
+
+    // Función para generar contenido de anuncio sin botones
+    function createAdItem() {
+      const adItem = document.createElement('div');
+      adItem.className = 'ad-box';
+      adItem.innerHTML = `
+        <img src="../images/anuncio.webp" alt="Anuncio">
+        <h3>Anuncio Especial</h3>
+        <p>Contenido promocional</p>
+      `;
+      return adItem;
+    }
+
+    // Generar contenido de noticias y agregar anuncios en posiciones específicas
+    for (let i = 1; i <= 15; i++) {
+      if (i === 2 || i === 5 || i === 8) { // Agregar anuncios en la segunda, quinta y octava posición
+        newsContainer.appendChild(createAdItem());
+      } else {
+        newsContainer.appendChild(createNewsItem(i));
+      }
+    }
+    
+
     const menuButton = document.getElementById('menuButton');
     const sidebar = document.getElementById('sidebar');
     const menuIcon = document.getElementById('menuIcon');
 
-  
     menuButton.addEventListener('click', () => {
         if (sidebar.classList.contains('visible')) {
             sidebar.classList.remove('visible');
@@ -209,6 +233,10 @@
                 themeStylesheet.setAttribute('href', '../css/dark.css');
             }
         });
+        
+      
+
+    
   </script>
 
 </body>
