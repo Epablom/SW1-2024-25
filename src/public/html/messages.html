@@ -5,48 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat</title>
     <link rel="stylesheet" href="../css/general.css">
-    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/bars.css">
     <script defer src="../js/script.js"></script>
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="https://www.ceu.es/favicon.ico">
 </head>
 
 <body>
-    <input type="checkbox" id="check">
-    <label for="check">
-        <i class="fas fa-bars" id="btn"></i>
-        <i class="fas fa-times" id="cancel"></i>
-    </label>
+    <nav class="top-nav">
+        <button id="menuButton" class="menu-icon">
+            <i class="fas fa-bars" id="menuIcon"></i>
+        </button>
+        <p>Bienvenido a CEU Study Hub, ¡Comienza a compartir tus apuntes!</p>
+        <button id="loginButton"><a href="login.html" class="edit-link">Sign in</a></button>
+      </nav>
     
-    <aside class="sidebar">
+      <aside class="sidebar" id="sidebar">
         <header>Menu</header>
+        
         <a href="profile.html">
-            <span>Mi perfil</span>
-        </a>        
+            <i class="fas fa-user"></i>
+            Mi perfil
+        </a> 
+        
+        <a href="index.html" class="active">
+            <i class="fas fa-book"></i>
+            Página principal
+        </a>   
+        
         <a href="index.html">
             <i class="fas fa-book"></i>
-            <span>Noticias</span>
+            Noticias
         </a>
+        
         <a href="resources.html">
             <i class="fas fa-book"></i>
-            <span>Mis recursos</span>
+            Mis recursos
         </a>
-        <a class="active" href="messages.html">
+        
+        <a href="messages.html">
             <i class="fas fa-comments"></i>
-            <span>Chats</span>
+            Chats
         </a>
-    </aside>
-
-    <header>
-        <nav class="top-nav">
-            <a href="#">Prod</a>
-            <a href="#">Solutions</a>
-            <a href="#">Community</a>
-            <a href="#">Resources</a>
-            <a href="#">Pricing</a>
-            <a href="#">Contact</a>
-            <button id="logoutButton"><a href="index.html" class="edit-link">Sign out</a></button>
-        </nav>
+        
+        <label class="switch">
+          <i class="fas fa-adjust"></i>
+          <input type="checkbox" id="themeToggle">
+          <span class="slider round"></span>
+        </label>
+      
+      </aside>
         <br>
         <h2 class="top-section-chat">Carlos García</h2>
     </header>
@@ -54,21 +62,6 @@
     <br><br>
     <div class="chat-container">
         <div class="chat-section">
-<<<<<<< HEAD
-            <div class="message sender">Tremendos apuntes que me llevas amigo<span class = "message-time">7:04am</span></div>
-            <div class="message receiver">¿Estas interesado en mis apuntes?<span class = "message-time">7:04am</span></div>
-            <div class="message sender">eso te estaba diciendo crack<span class = "message-time">7:04am</span></div>
-            <div class="message receiver">a pues nada vamos hablando y a ver en que queda la cosa<span class = "message-time">7:04am</span></div>
-            <div class="message sender">eso te estaba diciendo crack<span class = "message-time">7:04am</span></div>
-            <div class="message receiver">a pues nada vamos hablando y a ver en que queda la cosa<span class = "message-time">7:04am</span></div>
-            <div class="message sender">eso te estaba diciendo crack<span class = "message-time">7:04am</span></div>
-            <div class="message receiver">a pues nada vamos hablando y a ver en que queda la cosa<span class = "message-time">7:04am</span></div>
-            <div class="message sender">eso te estaba diciendo crack<span class = "message-time">7:04am</span></div>
-            <div class="message receiver">a pues nada vamos hablando y a ver en que queda la cosa<span class = "message-time">7:04am</span></div>
-            <div class="message sender">eso te estaba diciendo crack<span class = "message-time">7:04am</span></div>
-            <div class="message receiver">a pues nada vamos hablando y a ver en que queda la cosa<span class = "message-time">7:04am</span></div>
-        </div>
-=======
             <div class="message sender">Hola.<span class = "message-time">7:04am</span></div>
             <div class="message receiver">Hola. ¿Estás interesado en mis apuntes?<span class = "message-time">7:05am</span></div>
             <div class="message sender">Sí.<span class = "message-time">7:06am</span></div>
@@ -81,7 +74,6 @@
             <div class="message receiver">¡Listo! ¡Qué los disfrutes!<span class = "message-time">7:11am</span></div>
             <div class="message sender">¡Gracias!<span class = "message-time">7:12am</span></div>
             
->>>>>>> 8796ff699bdb49721f64a9053ba485ff2898e5b9
         <div class="chat-input-container">
             <input type="text" class="chat-input" placeholder="Escribe tu mensaje...">
             <button class="chat-button">Enviar</button>

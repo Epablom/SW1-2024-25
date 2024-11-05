@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar perfil</title>
     <link rel="stylesheet" href="../css/general.css">
-    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/bars.css">
     <script defer src="../js/script.js"></script>
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="https://www.ceu.es/favicon.ico">
@@ -15,40 +15,51 @@
              
 <body>
                  
-    <input type="checkbox" id="check">
-    <label for="check">
-        <i class="fas fa-bars" id="btn"></i>
-        <i class="fas fa-times" id="cancel"></i>
-    </label>
-    <aside class="sidebar">
+    <nav class="top-nav">
+        <button id="menuButton" class="menu-icon">
+            <i class="fas fa-bars" id="menuIcon"></i>
+        </button>
+        <p>Bienvenido a CEU Study Hub, ¡Comienza a compartir tus apuntes!</p>
+        <button id="loginButton"><a href="login.html" class="edit-link">Sign in</a></button>
+    </nav>
+    
+    <aside class="sidebar" id="sidebar">
         <header>Menu</header>
-        <a href="profile.html" class="active">
-            <span>Mi perfil</span>
-        </a>        
+        
+        <a href="profile.html">
+            <i class="fas fa-user"></i>
+            Mi perfil
+        </a> 
+        
+        <a href="index.html" class="active">
+            <i class="fas fa-book"></i>
+            Página principal
+        </a>   
+        
         <a href="index.html">
             <i class="fas fa-book"></i>
-            <span>Noticias</span>
+            Noticias
         </a>
+        
         <a href="resources.html">
             <i class="fas fa-book"></i>
-            <span>Mis recursos</span>
+            Mis recursos
         </a>
+        
         <a href="messages.html">
             <i class="fas fa-comments"></i>
-            <span>Chats</span>
+            Chats
         </a>
+        
+        <label class="switch">
+            <i class="fas fa-adjust"></i>
+            <input type="checkbox" id="themeToggle">
+            <span class="slider round"></span>
+        </label>
+    
     </aside>
 
     <header>
-        <nav class="top-nav">
-          <a href="#">Prod</a>
-          <a href="#">Solutions</a>
-          <a href="#">Community</a>
-          <a href="#">Resources</a>
-          <a href="#">Pricing</a>
-          <a href="#">Contact</a>
-          <button id="logoutButton"><a href="index.html" class="edit-link">Sign out</a></button>
-        </nav>
         <br>
         <div class="top-section">
             <img src="../images/profile.webp" alt="Imagen de Perfil" class="profile-pic">
@@ -56,33 +67,31 @@
                 <h2>Carlos García</h2>
                 <p>@carlosg123<br>Estudiante de Ingeniería Informática</p>
             </div>     
+            <div></div>
         </div>
-      </header>
+    </header>
     
     <main class="form-section">
         <div>
             <form id ="editProfileForm" onsubmit="return validateForm()" class="form">
                 <h2>Editar perfil</h2>
                 <label for="username">Nombre de Usuario</label>
-                <input type="text" id="username" name="username"><br><br>
+                <input type="text" id="username" name="username" value="carlosg123"><br><br>
 
                 <label for="email">Correo electrónico:</label>
-                <input type="text" id="email" name="email"><br><br>
-       
-                <label for="password">Contraseña</label>
-                <input type="password" id="password" name="password"><br><br>
+                <input type="text" id="email" name="email" value="c.garcia@usp.ceu.es"><br><br>
 
                 <label for="university">Universidad:</label>
-                <input type="text" id="university" name="university"><br><br>
+                <input type="text" id="university" name="university" value="USP-CEU"><br><br>
 
                 <label for="faculty">Facultad:</label>
-                <input type="text" id="faculty" name="faculty"><br><br>
+                <input type="text" id="faculty" name="faculty" value="EPS"><br><br>
 
                 <label for="degree">Grado:</label>
-                <input type="text" id="degree" name="degree"><br><br>
+                <input type="text" id="degree" name="degree" value="GISI"><br><br>
 
                 <label for="course">Curso:</label>
-                <input type="text" id="course" name="course"><br><br>
+                <input type="text" id="course" name="course" value="1º"><br><br>
 
                 <label for="biography">Biografía:</label>
                 <textarea id="biography" name="biography" class="text-area"></textarea><br><br>

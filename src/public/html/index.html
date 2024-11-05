@@ -198,45 +198,6 @@
         newsContainer.appendChild(createNewsItem(i));
       }
     }
-    
-
-    const menuButton = document.getElementById('menuButton');
-    const sidebar = document.getElementById('sidebar');
-    const menuIcon = document.getElementById('menuIcon');
-
-    menuButton.addEventListener('click', () => {
-        if (sidebar.classList.contains('visible')) {
-            sidebar.classList.remove('visible');
-            menuIcon.classList.remove('fa-times');
-            menuIcon.classList.add('fa-bars');
-        } else {
-            sidebar.classList.add('visible');
-            menuIcon.classList.remove('fa-bars');
-            menuIcon.classList.add('fa-times');
-        }
-    });
-  
-    // Close sidebar when clicking outside
-    document.body.addEventListener('click', (event) => {
-            if (!sidebar.contains(event.target) && !menuButton.contains(event.target) && sidebar.classList.contains('visible')) {
-                sidebar.classList.remove('visible');
-                menuIcon.classList.remove('fa-times');
-                menuIcon.classList.add('fa-bars');
-            }
-        });
-    
-    // Toggle between light and dark themes
-    themeToggle.addEventListener('click', () => {
-            if (themeStylesheet.getAttribute('href') === '../css/dark.css') {
-                themeStylesheet.setAttribute('href', '../css/light.css');
-            } else {
-                themeStylesheet.setAttribute('href', '../css/dark.css');
-            }
-        });
-        
-      
-
-    
   </script>
 
 </body>
