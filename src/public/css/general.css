@@ -15,7 +15,6 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  color: white;
 }
 
 button {
@@ -37,19 +36,20 @@ button a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(0, 0, 0, 0.7);
-  padding: 20px;
+  background: #333;
+  padding: 10px;
   border-radius: 10px;
   margin-bottom: 30px;
+  white-space: nowrap;
+  overflow-x: auto;
 }
 
 .top-section-chat {
   text-align: center; 
-  background: rgba(0, 0, 0, 0.7); 
   padding: 10px;
-  color: white; 
   position: sticky; 
-  top: 0; 
+  top: 0;
+  border-radius: 10px;
 }
 
 .chat-container {
@@ -57,7 +57,6 @@ button a {
   width: 700px;
   margin: 20px; 
   padding: 10px; 
-  background: rgba(0, 0, 0, 0.7); 
   border-radius: 10px; 
   height: 70vh; 
   display: flex;
@@ -71,7 +70,6 @@ button a {
   flex-direction: column;
   padding: 10px 0; 
   scrollbar-width: thin; /* Puede ser 'auto' o 'thin' */
-  scrollbar-color: rgba(255, 255, 255, 0.5) rgba(0, 0, 0, 0.7);
   /*overflow-y: auto;  para tener un scroll bar luego en chat*/
 }
 
@@ -83,20 +81,17 @@ button a {
 }
 
 .message.sender {
-  background-color: #77DD77;
   align-self: flex-end; 
   margin-left: auto; 
 }
 
 .message.receiver {
-  background-color: #FF6961; 
   align-self: flex-start; 
   margin-right: auto; 
 }
 
 .message-time {
   font-size: 0.6em; 
-  color: #555; 
   display: block; 
   margin-bottom: 4px; 
   text-align: right; 
@@ -104,7 +99,6 @@ button a {
 
 .chat-input-container {
   align-items: center;
-  background: #000000b3;
   padding: 10px;
   border-radius: 10px;
 }
@@ -114,9 +108,7 @@ button a {
   border-radius: 10px;
   border: none;
   margin-right: 10px;
-  background: rgba(0, 0, 0, 0.7);
   height: 50px;
-  color: white;
   width: 570px;
 }
 
@@ -125,8 +117,7 @@ button a {
   border-radius: 5px;
   border: none;
   border-top: 20px;
-  background-color: #000000b3;
-  color: rgb(204, 198, 198);
+
   cursor: pointer;
   height: 50px;
   width: 70px;
@@ -137,7 +128,6 @@ button a {
   width: 300px;
   margin: 20px; 
   padding: 10px; 
-  background: rgba(0, 0, 0, 0.7); 
   border-radius: 10px; 
   height: 70vh; 
   display: flex;
@@ -152,8 +142,6 @@ button a {
   padding: 10px; 
   margin: 5px 0; 
   border-radius: 5px; 
-  background: rgba(0, 0, 0, 0.7); 
-  color: white; 
   text-align: left;
   height: 60px;
 }
@@ -200,6 +188,38 @@ button a {
   padding: 1em;
   margin-left: 0;
   transition: margin-left 0.5s ease;
+}
+.content-details {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+}
+.content-details h3,
+.content-details p {
+  margin: 5px 0;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+.buttons i {
+  cursor: pointer;
+  font-size: 20px; /* Tamaño de los íconos */
+  color: #fff; /* Color blanco para los íconos */
+}
+.ad-box {
+  background-color: #f4f4f4;
+  border: 1px solid #ccc;
+  margin: 20px 0;
+  padding: 15px;
+  text-align: center;
+  color: black; /* Color de las letras en negro */
+}
+.ad-box img {
+  width: 100%;
+  height: auto;
 }
 
 .section {
@@ -304,10 +324,14 @@ button a {
   box-sizing: border-box;
   margin-bottom: 10px;
 }
+.news-container {
+  width: 60%;
+}
 
 .box {
-  background-color: rgba(15, 15, 15, 0.7);
-  border: 1px solid black;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  margin: 20px 0; 
   text-align: left;
 }
 
@@ -391,6 +415,7 @@ button a {
 .box img {
   width: 100%;
   object-fit: cover;
+  height: auto;
 }
 
 .footer {
@@ -423,6 +448,21 @@ button a {
 
 .tutor {
   align-self: center;
+  display: inline-block;
+  margin-right: 20px;
+  text-align: center;
+  color: #fff;
+}
+.tutor img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
 }
 
 .form-section {

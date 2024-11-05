@@ -2,8 +2,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #6c63ff;
-  color: rgb(224, 224, 224);
+
   padding: 0.5rem;
   position: relative;
   text-decoration: none;
@@ -29,8 +28,6 @@ nav {
   left: -250px;
   width: 250px;
   height: 100%;
-  background-color: #333;
-  color: rgb(190, 190, 190);
   padding: 1em;
   transition: left 0.5s ease;
   z-index: 1;
