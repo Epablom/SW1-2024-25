@@ -278,8 +278,8 @@ main .user-info {
     align-items: center;
     padding: 20px;
     border-radius: 10px;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-white);
+    box-shadow: 0 4px 8px var(--color-box-shadow);
     margin-bottom: 20px;
 }
 
@@ -304,13 +304,12 @@ main .user-info .info h2 {
 }
 
 main .user-info .info p {
-    background-color: #ffffff;
     padding: 10px 15px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px var(--color-box-shadow);
     margin: 0;
     font-size: 16px;
-    color: #333;
+    color: var(--color-dark-variant);
 }
 
 .right-section{
