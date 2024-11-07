@@ -271,6 +271,48 @@ main .recent-orders a{
     color: var(--color-primary);
 }
 
+main .user-info {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 20px;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+main .user-info img {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    border-radius: 10px;
+    object-fit: cover;
+    align-self: stretch;
+}
+
+main .user-info .info {
+    display: grid;
+    gap: 10px;
+}
+
+main .user-info .info h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+main .user-info .info p {
+    background-color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
 .right-section{
     margin-top: 1.4rem;
 }
