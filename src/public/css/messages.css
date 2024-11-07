@@ -1,0 +1,113 @@
+/*estilos del contenedor del chat*/
+.chat-container {
+    max-width: 700px; 
+    width: 700px;
+    margin: 20px; 
+    padding: 10px; 
+    border-radius: 10px; 
+    height: 70vh; 
+    display: flex;
+    flex-direction: column; 
+    margin: auto; 
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.chat-section {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0; 
+    scrollbar-width: thin; /*scroll needs to be fixed*/
+}
+
+.message {
+    margin: 5px 0; 
+    padding: 8px; 
+    border-radius: 10px;
+    max-width: 80%; 
+}
+  
+.message.sender {
+    align-self: flex-end; 
+    margin-left: auto; 
+}
+  
+.message.receiver {
+    align-self: flex-start; 
+    margin-right: auto; 
+}
+
+
+.message-time {
+    font-size: 0.6em; 
+    display: block; 
+    margin-bottom: 4px; 
+    text-align: right; 
+}
+
+/* Contenedor de entrada de chat */
+.chat-input-container {
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.chat-input {
+    padding: 8px; 
+    border-radius: 10px;
+    border: none;
+    margin-right: 10px;
+    height: 50px;
+    width: 570px;
+    background: rgba(0, 0, 0, 0.7); /*check later*/
+  }
+    
+.chat-button {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: none;
+    border-top: 20px;
+    cursor: pointer;
+    height: 50px;
+    width: 70px;
+}
+
+/* lista de chats */
+.chat-list {
+    max-width: 400px; 
+    width: 300px;
+    margin: 20px; 
+    padding: 10px; 
+    border-radius: 10px; 
+    height: 70vh; 
+    display: flex;
+    flex-direction: column; 
+    overflow-y: auto; 
+    position: absolute; 
+    right: 20px; 
+    top: 140px; 
+}
+
+.chat-item {
+    padding: 10px; 
+    margin: 5px 0; 
+    border-radius: 5px; 
+    text-align: left;
+    height: 60px;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    align-self: left;
+}
+
+/* Sección superior del chat */
+.top-section-chat {
+    text-align: center; 
+    padding: 10px;
+    position: sticky; 
+    top: 0;
+    border-radius: 10px;
+}  
