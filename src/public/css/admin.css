@@ -240,7 +240,7 @@ main .recent-orders h2{
     margin-bottom: 0.8rem;
 }
 
-main .recent-orders table{
+main table{
     background-color: var(--color-white);
     width: 100%;
     padding: var(--card-padding);
@@ -272,10 +272,10 @@ main .recent-orders a{
 }
 
 main .user-info {
-    display: grid;
-    grid-template-columns: auto 1fr;
+    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
-    align-items: center;
+    align-items: stretch; /* Hace que las columnas se alineen en altura */
     padding: 20px;
     border-radius: 10px;
     background-color: var(--color-white);
@@ -284,13 +284,14 @@ main .user-info {
 }
 
 main .user-info img {
-    width: 100%;
-    height: auto;
-    max-height: 250px;
+    width: auto; /* Mantiene el ancho proporcional de la imagen */
+    height: 100%; /* La imagen ocupa la altura del contenido */
+    max-width: 250px; /* Limita el ancho de la imagen para evitar que sea demasiado grande */
     border-radius: 10px;
-    object-fit: cover;
-    align-self: stretch;
+    object-fit: cover; /* Asegura que la imagen se recorte si es necesario para llenar su contenedor */
 }
+
+
 
 main .user-info .info {
     display: grid;
