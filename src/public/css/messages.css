@@ -1,11 +1,11 @@
 /*estilos del contenedor del chat*/
 .chat-container {
     display: flex;
-    height: 80vh;
+    height: 73.8vh;
     width: 100%;
     margin: auto;
     background: #333;
-    border-radius: 10px;
+    border-radius: 5px;
     overflow: hidden;
   }
 
@@ -47,13 +47,19 @@
 }
 
 /* Contenedor de entrada de chat */
-.chat-input-container {
+#chat-input-container {
+    background: #040408;
     display: flex;
     align-items: center;
-    padding: 10px;
-    border-radius: 10px;
+    padding: 5px;
+    border-radius: 1px;
     color: white; 
-}
+    width: 47.65%;
+    margin: -16px ;
+    height: 60px;
+    position:absolute;
+    bottom: 24px;
+    }
 
 .chat-input {
     padding: 8px; 
@@ -64,6 +70,7 @@
     width: 770px;
     color: white; 
     font-size: 20px;
+    flex-grow: 1;
 }
     
 .chat-button {
@@ -73,7 +80,8 @@
     border-top: 20px;
     cursor: pointer;
     height: 50px;
-    width: 70px;
+    width: 15%;
+    font-size: 17px;
 }
 
 /* lista de chats */
@@ -100,7 +108,7 @@
 }
 
 .chat-item:hover {
-    background: #271b98b3;
+    background: #6c63ff;
 }
 
 .profile-pic {
