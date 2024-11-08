@@ -9,7 +9,7 @@
   <link rel="stylesheet" id="themeStylesheet" href="../css/dark.css">
   <script defer src="../js/script.js"></script>
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-  <link rel="icon" type="image/x-icon" href="https://www.ceu.es/favicon.ico">    
+  <link rel="icon" type="image/x-icon" href="../images/StudyHub.ico">    
     
 </head>
 
@@ -73,17 +73,36 @@
     const contactBar = document.getElementById('contactBar');
     const contacts = [
       'Carlos García', 'Federico Pérez', 'Ana López', 'María Fernández', 
-      'Juan Sánchez', 'Laura Gómez', 'Pedro Martínez', 'Isabel Torres', 
-      'Sofía Ruiz', 'Miguel Ángel', 'Luis Ramírez', 'Clara Vázquez', 
-      'Daniela Herrera', 'Pablo Ibáñez', 'Cristina Morales', 'Javier Gómez'
+      'Marta Sánchez', 'Laura Gómez', 'Pedro Martínez', 'Luis Ramírez', 
+      'Pablo Ibáñez', 'Miguel Ángel', 'Isabel Torres', 'Clara Vázquez', 
+      'Daniela Herrera', 'Sofía Ruiz', 'Christian Morales', 'Javier Gómez'
     ];
 
+    const images = [
+      "../images/users/1.jpg",
+      "../images/users/2.jpg",
+      "../images/users/3.jpg",
+      "../images/users/4.jpg",
+      "../images/users/5.jpg",
+      "../images/users/6.jpg",
+      "../images/users/7.jpg",
+      "../images/users/8.jpg"
+    ];
+
+    const publications = [
+      "../images/notices/noticias1.png",
+      "../images/notices/noticias2.png",
+      "../images/notices/noticias3.png",
+      "../images/notices/noticias4.png"
+    ];
+    
     // Generar elementos de contacto
-    contacts.forEach(contact => {
+    contacts.forEach((contact, index) => {
       const contactElement = document.createElement('div');
       contactElement.className = 'tutor';
+      const imageIndex = index % images.length; // Usar el índice de la imagen cíclicamente
       contactElement.innerHTML = `
-        <img src="../images/profile.webp" alt="Imagen de Perfil">
+        <img src="${images[imageIndex]}" alt="Imagen de Perfil">
         <p>${contact}</p>
       `;
       contactBar.appendChild(contactElement);
@@ -95,8 +114,9 @@
     function createNewsItem(index) {
       const newsItem = document.createElement('div');
       newsItem.className = 'box';
+      const publicationIndex = (index - 1) % publications.length;
       newsItem.innerHTML = `
-        <img src="../images/publicacion.webp" alt="Publicación">
+        <img src="${publications[publicationIndex]}" alt="Publicación">
         <div class="content-details">
           <h3>Titulo de la publicación</h3>
           <p>Subtitulo</p>
