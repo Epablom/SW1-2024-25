@@ -54,11 +54,12 @@
     padding: 5px;
     border-radius: 1px;
     color: white; 
-    width: 47.65%;
-    margin: -16px ;
-    height: 60px;
+    width: 60.65%;
+    margin: -60px ;
+    height: 50px;
     position:absolute;
-    bottom: 24px;
+    bottom: 30px;
+    right: 190px;
     }
 
 .chat-input {
