@@ -3,62 +3,202 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CEU Study Hub</title>
-  <link rel="stylesheet" href="../css/general.css">
-  <link rel="stylesheet" href="../css/bars.css">
-  <link rel="stylesheet" id="themeStylesheet" href="../css/dark.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="../css/general.css"> -->
+  <!-- <link rel="stylesheet" href="../css/bars.css"> -->
+  <link rel="stylesheet" href="../css/styles.css">
   <script defer src="../js/script.js"></script>
-  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-  <link rel="icon" type="image/x-icon" href="https://www.ceu.es/favicon.ico">    
-    
+  <link rel="icon" type="image/x-icon" href="https://www.ceu.es/favicon.ico"> 
+  <title>CEU Study Hub</title>   
 </head>
 
 <body>
+  <div class="container">
+    <!-- Sidebar Section -->
+    <aside>
+      <div class="toggle">
+          <div class="logo">
+              <img src="../images/StudyHub.png">
+              <h2>Study<span class="success">Hub</span></h2>
+          </div>
+          <div class="close" id="close-btn">
+              <span class="material-icons-sharp">
+                  close
+              </span>
+          </div>
+      </div>
 
-  <nav class="top-nav">
-    <button id="menuButton" class="menu-icon">
-        <i class="fas fa-bars" id="menuIcon"></i>
-    </button>
-    <p>Bienvenido a CEU Study Hub, ¡Comienza a compartir tus apuntes!</p>
-    <button id="loginButton"><a href="login.html" class="edit-link">Sign in</a></button>
-  </nav>
+      <div class="sidebar">
+          <a href="dashboard.html" class="active">
+              <span class="material-icons-sharp">
+                  dashboard
+              </span>
+              <h3>Panel de administración</h3>
+          </a>
+          <a href="users.html">
+              <span class="material-icons-sharp">
+                  person_outline
+              </span>
+              <h3>Usuarios</h3>
+          </a>
+          <a href="history.html">
+              <span class="material-icons-sharp">
+                  receipt_long
+              </span>
+              <h3>Historial</h3>
+          </a>
+          <a href="#">
+              <span class="material-icons-sharp">
+                  insights
+              </span>
+              <h3>Analíticas</h3>
+          </a>
+          <a href="alertas.html">
+              <span class="material-icons-sharp">
+                  mail_outline
+              </span>
+              <h3>Alertas</h3>
+              <span class="message-count">27</span>
+          </a>
+          <a href="#">
+              <span class="material-icons-sharp">
+                  inventory
+              </span>
+              <h3>Historial de ventas</h3>
+          </a>
+          <a href="reportedUsers.html">
+              <span class="material-icons-sharp">
+                  report_gmailerrorred
+              </span>
+              <h3>Usuarios reportados</h3>
+          </a>
+          <!-- <a href="#">
+              <span class="material-icons-sharp">
+                  settings
+              </span>
+              <h3>Settings</h3>
+          </a> -->
+          <a href="#">
+              <span class="material-icons-sharp">
+                  add
+              </span>
+              <h3>Añadir cuenta</h3>
+          </a>
+          <a href="#">
+              <span class="material-icons-sharp">
+                  logout
+              </span>
+              <h3>Cerrar sesión</h3>
+          </a>
+      </div>
+    </aside>
+  <!-- End of Sidebar Section -->
 
-  <aside class="sidebar" id="sidebar">
-    <header>Menu</header>
-    
-    <a href="profile.html">
-        <i class="fas fa-user"></i>
-        Mi perfil
-    </a> 
-    
-    <a href="index.html" class="active">
-        <i class="fas fa-book"></i>
-        Página principal
-    </a>   
-    
-    <a href="index.html">
-        <i class="fas fa-book"></i>
-        Noticias
-    </a>
-    
-    <a href="resources.html">
-        <i class="fas fa-book"></i>
-        Mis recursos
-    </a>
-    
-    <a href="messages.html">
-        <i class="fas fa-comments"></i>
-        Chats
-    </a>
-    
-    <label class="switch">
-      <i class="fas fa-adjust"></i>
-      <input type="checkbox" id="themeToggle">
-      <span class="slider round"></span>
-    </label>
-  
-  </aside>
-<br>
+    <!-- Main Content -->
+    <main>
+      <h1>Panel de Administración</h1>
+      <!-- Analyses -->
+      <div class="analyse">
+          <div class="sales">
+              <div class="status">
+                  <div class="info">
+                      <h3>Nuevos apuntes</h3>
+                      <h1>24</h1>
+                  </div>
+                  <div class="progresss">
+                      <svg>
+                          <circle cx="38" cy="38" r="36"></circle>
+                      </svg>
+                      <div class="percentage">
+                          <p>+81%</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="visits">
+              <div class="status">
+                  <div class="info">
+                      <h3>Visitas mensuales</h3>
+                      <h1>1,181</h1>
+                  </div>
+                  <div class="progresss">
+                      <svg>
+                          <circle cx="38" cy="38" r="36"></circle>
+                      </svg>
+                      <div class="percentage">
+                          <p>-48%</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="searches">
+              <div class="status">
+                  <div class="info">
+                      <h3>Busquedas</h3>
+                      <h1>547</h1>
+                  </div>
+                  <div class="progresss">
+                      <svg>
+                          <circle cx="38" cy="38" r="36"></circle>
+                      </svg>
+                      <div class="percentage">
+                          <p>+21%</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- End of Analyses -->
+
+      <!-- New Users Section -->
+      <div class="new-users">
+          <h2>Nuevos usuarios</h2>
+          <div class="user-list">
+              <div class="user">
+                  <img src="../images/users/1.jpg">
+                  <h2>Jack</h2>
+                  <p>54 Min Ago</p>
+              </div>
+              <div class="user">
+                  <img src="../images/users/2.jpg">
+                  <h2>Paul</h2>
+                  <p>3 Hours Ago</p>
+              </div>
+              <div class="user">
+                  <img src="../images/users/3.jpg">
+                  <h2>Ember</h2>
+                  <p>6 Hours Ago</p>
+              </div>
+              <div class="user">
+                  <img src="../images/users/4.jpg">
+                  <h2>Isabel</h2>
+                  <p>1 Day Ago</p>
+              </div>
+          </div>
+      </div>
+      <!-- End of New Users Section -->
+
+      <!-- Recent Orders Table -->
+      <div class="recent-orders">
+          <h2>Últimas alertas</h2>
+          <table>
+              <thead>
+                  <tr>
+                      <th>Nombre de usuario</th>
+                      <th>Publicación reportada</th>
+                      <th>Número de tiquet</th>
+                      <th>Estado</th>
+                      <th></th>
+                  </tr>
+              </thead>
+              <tbody></tbody>
+          </table>
+          <a href="#">Show All</a>
+      </div>
+      <!-- End of Recent Orders -->
+
+    </main>
+      <!-- End of Main Content -->
   <header class="top-section" id="contactBar">
     <!-- Contactos generados dinámicamente -->
   </header>
@@ -67,6 +207,7 @@
     <div class="news-container" id="newsContainer">
       <!-- Noticias y anuncios generados dinámicamente -->
     </div>
+  </div>
   </div>
 
   <script>
@@ -131,6 +272,8 @@
       }
     }
   </script>
+
+<script src="../js/index.js"></script>
 
 </body>
 </html>
