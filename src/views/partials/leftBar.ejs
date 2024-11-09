@@ -1,0 +1,145 @@
+<% if (isAdmin) { %>
+<aside>
+    <div class="toggle">
+        <div class="logo">
+            <img src="../images/StudyHub.png">
+            <h2>Study<span class="success">Hub</span></h2>
+        </div>
+        <div class="close" id="close-btn">
+            <span class="material-icons-sharp">
+                close
+            </span>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <a href="dashboard.html" class="<%= currentPage === 'dashboard' ? 'active' : '' %>">
+            <span class="material-icons-sharp">
+                dashboard
+            </span>
+            <h3>Panel de administración</h3>
+        </a>
+        <a href="users.html" class="<%= currentPage === 'users' ? 'active' : '' %>">
+            <span class="material-icons-sharp">
+                person_outline
+            </span>
+            <h3>Usuarios</h3>
+        </a>
+        <a href="history.html" class="<%= currentPage === 'history' ? 'active' : '' %>">
+            <span class="material-icons-sharp">
+                receipt_long
+            </span>
+            <h3>Historial</h3>
+        </a>
+        <a href="#" class="<%= currentPage === 'insights' ? 'active' : '' %>">
+            <span class="material-icons-sharp">
+                insights
+            </span>
+            <h3>Analíticas</h3>
+        </a>
+        <a href="alertas.html" class="<%= currentPage === 'alertas' ? 'active' : '' %>">
+            <span class="material-icons-sharp">
+                mail_outline
+            </span>
+            <h3>Alertas</h3>
+            <span class="message-count">27</span>
+        </a>
+        <a href="#" class="<%= currentPage === 'sell_history' ? 'active' : '' %>">
+            <span class="material-icons-sharp">
+                inventory
+            </span>
+            <h3>Historial de ventas</h3>
+        </a>
+        <a href="reportedUsers.html" class="<%= currentPage === 'reportedUsers' ? 'active' : '' %>">
+            <span class="material-icons-sharp">
+                report_gmailerrorred
+            </span>
+            <h3>Usuarios reportados</h3>
+        </a>
+        <!-- <a href="#">
+            <span class="material-icons-sharp">
+                settings
+            </span>
+            <h3>Settings</h3>
+        </a> -->
+        <a href="#" class="<%= currentPage === 'addAcount' ? 'active' : '' %>">
+            <span class="material-icons-sharp">
+                add
+            </span>
+            <h3>Añadir cuenta</h3>
+        </a>
+        <a href="#" class="<%= currentPage === 'logout' ? 'active' : '' %>">
+            <span class="material-icons-sharp">
+                logout
+            </span>
+            <h3>Cerrar sesión</h3>
+        </a>
+    </div>
+</aside>
+<% } else { %>
+<aside>
+<div class="toggle">
+    <div class="logo">
+        <img src="../images/StudyHub.png">
+        <h2>Study<span class="success">Hub</span></h2>
+    </div>
+    <div class="close" id="close-btn">
+        <span class="material-icons-sharp">
+            close
+        </span>
+    </div>
+</div>
+
+<div class="sidebar">
+    <a href="/" class="<%= currentPage === 'index' ? 'active' : '' %>">
+        <span class="material-icons-sharp">
+            dashboard
+        </span>
+        <h3>Página principal</h3>
+    </a>
+    <a href="chat" class="<%= currentPage === 'chat' ? 'active' : '' %>">
+        <span class="material-icons-sharp">
+            person_outline
+        </span>
+        <h3>Chat</h3>
+    </a>
+    <a href="profile" class="<%= currentPage === 'profile' || currentPage === 'publication' || currentPage === 'resources' ? 'active' : '' %>">
+        <span class="material-icons-sharp">
+            receipt_long
+        </span>
+        <h3>Perfil</h3>
+    </a>
+    <a href="#" class="<%= currentPage === 'archive' ? 'active' : '' %>">
+        <span class="material-icons-sharp">
+            insights
+        </span>
+        <h3>Archivo</h3>
+    </a>
+    <a href="#" class="<%= currentPage === 'userAlert' ? 'active' : '' %>">
+        <span class="material-icons-sharp">
+            mail_outline
+        </span>
+        <h3>Alertas</h3>
+        <span class="message-count">27</span>
+    </a>
+    <a href="#" class="<%= currentPage === 'userHistory' ? 'active' : '' %>">
+        <span class="material-icons-sharp">
+            inventory
+        </span>
+        <h3>Historial de ventas</h3>
+    </a>
+    <a href="#" class="<%= currentPage === 'addAcount' ? 'active' : '' %>">
+        <span class="material-icons-sharp">
+            add
+        </span>
+        <h3>Añadir cuenta</h3>
+    </a>
+    <a href="#" class="<%= currentPage === 'logout' ? 'active' : '' %>">
+        <span class="material-icons-sharp">
+            logout
+        </span>
+        <h3>Cerrar sesión</h3>
+    </a>
+</div>
+</aside>
+<% } %>
