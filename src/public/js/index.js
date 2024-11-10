@@ -18,4 +18,16 @@ darkMode.addEventListener('click', () => {
     darkMode.querySelector('span:nth-child(2)').classList.toggle('active');
 })
 
+// Funciones para abrir y cerrar el panel de login
+function openLoginPanel() {
+    document.getElementById('overlay').classList.add('show');
+    document.getElementById('loginPanel').classList.add('show');
+}
 
+function closeLoginPanel() {
+    document.getElementById('overlay').classList.remove('show');
+    document.getElementById('loginPanel').classList.remove('show');
+}
+
+// Cerrar el panel al hacer clic fuera del área del panel
+document.getElementById('overlay').addEventListener('click', closeLoginPanel);
