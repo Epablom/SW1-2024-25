@@ -19,17 +19,17 @@ app.set('views', path.join(__dirname, 'views'));
 
 // Rutas para cada archivo HTML en ./public/html
 app.get('/', (req, res) => {
-    res.render('index', { title: 'StudyHub', currentPage: 'index' });
+    res.render('index', { title: 'StudyHub', css: 'mainItems', currentPage: 'index' });
 });
 
 app.get('/alertas', (req, res) => {
     res.locals.isAdmin = true;
-    res.render('alertas', { title: 'Alertas', currentPage: 'alertas' })
+    res.render('alertas', { title: 'Alertas', css: 'admin', currentPage: 'alertas' })
 });
 
 app.get('/dashboard', (req, res) => {
     res.locals.isAdmin = true;
-    res.render('dashboard', { title: 'Panel de Administrador', currentPage: 'dashboard' })
+    res.render('dashboard', { title: 'Panel de Administrador', css: 'admin', currentPage: 'dashboard' })
 });
 
 app.get('/editProfile', (req, res) => {
@@ -38,7 +38,7 @@ app.get('/editProfile', (req, res) => {
 
 app.get('/history', (req, res) => {
     res.locals.isAdmin = true;
-    res.render('history', { title: 'Historial de Notificaciones', currentPage: 'history' })
+    res.render('history', { title: 'Historial de Notificaciones', css: 'admin', currentPage: 'history' })
 });
 
 app.get('/login', (req, res) => {
@@ -54,7 +54,7 @@ app.get('/profile', (req, res) => {
 });
 
 app.get('/publication', (req, res) => {
-    res.render('publication', { title: 'Publicación', currentPage: 'publication' })
+    res.render('publication', { title: 'Publicación', css: 'mainItems', currentPage: 'publication' })
 });
 
 app.get('/register', (req, res) => {
@@ -62,7 +62,7 @@ app.get('/register', (req, res) => {
 });
 
 app.get('/reportedUsers', (req, res) => {
-    res.render('reportedUsers', { title: 'Usuarios Repotados', currentPage: 'reportedUsers' })
+    res.render('reportedUsers', { title: 'Usuarios Repotados', css: 'admin', currentPage: 'reportedUsers' })
 });
 
 app.get('/resetPassword', (req, res) => {
@@ -70,12 +70,15 @@ app.get('/resetPassword', (req, res) => {
 });
 
 app.get('/resources', (req, res) => {
-    res.render('resources', { title: 'Recursos', currentPage: 'resources' })
+    res.render('resources', { title: 'Recursos', css: 'mainItems', currentPage: 'resources' })
 });
 
 app.get('/users', (req, res) => {
     res.locals.isAdmin = true;
-    res.render('users', { title: 'Usuarios', currentPage: 'users' })
+    res.render('users', { title: 'Usuarios', css: 'admin', currentPage: 'users' })
+});
+app.get('/test', (req, res) => {
+    res.render('test', { title: 'Test', css: 'mainItems', currentPage: 'test' })
 });
 
 
