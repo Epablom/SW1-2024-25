@@ -2,6 +2,7 @@
 
 :root{
     --color-primary: #6C9BCF;
+    --color-primary-variant: #3b6699;
     --color-danger: #FF0060;
     --color-success: #1B9C85;
     --color-warning: #F7D060;
@@ -507,4 +508,9 @@ main{
         font-size: 2rem;
     }
 
+}
+
+
+.apuntes {
+    max-width: 600px !important;
 }
