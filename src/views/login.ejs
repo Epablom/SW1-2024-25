@@ -15,8 +15,16 @@
 
   <div class="container">
     <section id="loginSection" class="form-section">
-      <form id="loginForm" class="form">
+      <form action="/login" id="loginForm" class="form" method="post">
         <h2>Iniciar Sesión</h2>
+        <!--Manejar mensajes de error-->
+        <% if (error) { %>
+          <div class="error-message"><%= error %></div>
+        <% } %>
+        <% if (message) { %>
+          <div class="success-message"><%= message %></div>
+        <% } %>
+        <!--Formulario login-->
         <label for="usernameLogin">Nombre de Usuario</label>
         <input type="text" id="usernameLogin" name="usernameLogin" required>
 
@@ -26,14 +34,14 @@
         <button type="submit">Login</button>
         
         <p class="form-footer">
-          <a href="reset_password.html">¿Olvidaste tu contraseña?</a>
+          <a href="/resetPassword">¿Olvidaste tu contraseña?</a>
         </p>
         
         <p class="form-footer">
-          ¿No tienes una cuenta? <a href="register.html">Regístrate aquí</a>
+          ¿No tienes una cuenta? <a href="/register">Regístrate aquí</a>
         </p>
 
-        <button type="button" onclick="window.location.href='index.html'" style="margin-top: 15px;">
+        <button type="button" onclick="window.location.href='/index'" style="margin-top: 15px;">
           Volver a Inicio
         </button>
         

@@ -16,8 +16,16 @@
 
   <div class="container">
     <section id="registerSection" class="form-section">
-      <form id="registerForm" onsubmit="return validateForm()" class="form">
+      <form action="/register" id="registerForm" onsubmit="return validateForm()" class="form" method="post">
         <h2>Registro</h2>
+        <!--Manejar mensajes de error-->
+        <% if (error) { %>
+          <div class="error-message"><%= error %></div>
+        <% } %>
+        <% if (message) { %>
+          <div class="success-message"><%= message %></div>
+        <% } %>
+        <!--Formulario de registro-->
         <label for="username">Nombre de Usuario</label>
         <input type="text" id="username" name="username" required>
 

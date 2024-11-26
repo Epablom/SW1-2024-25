@@ -1,35 +1,32 @@
 document.addEventListener("DOMContentLoaded", function() {
-    //Verificar si el usuario está registrado/logeado
-    const isRegistered = localStorage.getItem("registered") === "true";
-    const isLoggedIn = localStorage.getItem("loggedIn") === "true";
-
     //Mostrar alerta si intenta acceder a una página sin haber iniciado sesión en sección principal (noticias)
     const links = document.querySelectorAll("aside a");
     const currentPage = window.location.pathname.split('/').pop(); 
     links.forEach(link => {
         link.addEventListener("click", function(event) {
-            if (!isLoggedIn && currentPage === "index.html") {
-                event.preventDefault();
-                alert("Debe iniciar sesión");
-            }
+            //validación en el servidor para verificar la sesión del usuario?
+            alert("Debe iniciar sesión"); 
+            event.preventDefault();
         });
     });
 
     const loginForm = document.querySelector("#loginForm");
     if (loginForm) {
-        loginForm.addEventListener("submit", function(event) {
+        loginForm.addEventListener("submit", async function(event) {
             event.preventDefault(); 
 
             const username = document.querySelector("#usernameLogin").value;
             const password = document.querySelector("#passwordLogin").value;
 
-            //Recuperamos los datos de usuario almacenados
-            const storedUsername = localStorage.getItem("username");
-            const storedPassword = localStorage.getItem("password");
+             // Realizar petición al servidor para validar credenciales
+             const response = await fetch('/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password }),
+            });
 
-            if (username === storedUsername && password === storedPassword) {
-                localStorage.setItem("loggedIn", "true"); //guardamos para saber qué está logeado
-                window.location.href = "profile.html";
+            if (response.ok) {
+                window.location.href = "/profile";
             } else {
                 alert("Nombre de usuario o contraseña incorrectos.");
             }
@@ -38,56 +35,38 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const registerForm = document.querySelector("#registerForm"); 
     if (registerForm) {
-        registerForm.addEventListener("submit", function(event) {
+        registerForm.addEventListener("submit", async function(event) {
             event.preventDefault();
 
-            const username = document.querySelector("#username").value;
-            const password = document.querySelector("#password").value;
-            const email = document.querySelector("#email").value;
-            const university = document.querySelector("#university").value;
-            const faculty = document.querySelector("#faculty").value;
-            const degree = document.querySelector("#degree").value;
-            const course = document.querySelector("#course").value;
+            const userData = {
+                username: document.querySelector("#username").value,
+                password: document.querySelector("#password").value,
+                email: document.querySelector("#email").value,
+                university: document.querySelector("#university").value,
+                faculty: document.querySelector("#faculty").value,
+                degree: document.querySelector("#degree").value,
+                course: document.querySelector("#course").value,
+            };
 
-            localStorage.setItem("username", username);
-            localStorage.setItem("password", password);
-            localStorage.setItem("email", email);
-            localStorage.setItem("university", university);
-            localStorage.setItem("faculty", faculty);
-            localStorage.setItem("degree", degree);
-            localStorage.setItem("course", course);
-            localStorage.setItem("registered", "true"); //guardamos para saber que se ha registrado
-            alert("Registro realizado con éxito. Ahora puedes iniciar sesión.");
+            // Enviar los datos al servidor para registrarlos en la base de datos
+            const response = await fetch('/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(userData),
+            });
 
-            window.location.href = "login.html";
-        });
-    }
-
-    document.addEventListener("DOMContentLoaded", function() {
-        const editProfileForm = document.querySelector("#editProfileForm");
-        
-        const storedData = {
-            username: localStorage.getItem("username"),
-            password: localStorage.getItem("password"),
-            email: localStorage.getItem("email"),
-            university: localStorage.getItem("university"),
-            faculty: localStorage.getItem("faculty"),
-            degree: localStorage.getItem("degree"),
-            course: localStorage.getItem("course"),
-            biography: localStorage.getItem("biography"),
-        };
-    
-        //Rellenar el formulario con los datos guardados
-        for (const key in storedData) {
-            if (storedData[key]) {
-                document.querySelector(`#${key}`).value = storedData[key];
+            if (response.ok) {
+                alert("Registro realizado con éxito. Ahora puedes iniciar sesión.");
+                window.location.href = "/";
+            } else {
+                alert("Error al registrar el usuario. Inténtalo de nuevo.");
             }
-        }
+        });
     
-        editProfileForm.addEventListener("submit", function(event) {
-            event.preventDefault(); 
-            
-            const updatedData = { //Obtener valores actualizados
+        editProfileForm.addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            const updatedData = {
                 username: document.querySelector("#username").value,
                 password: document.querySelector("#password").value,
                 email: document.querySelector("#email").value,
@@ -96,22 +75,31 @@ document.addEventListener("DOMContentLoaded", function() {
                 degree: document.querySelector("#degree").value,
                 course: document.querySelector("#course").value,
                 biography: document.querySelector("#biography").value,
-            };
-    
-            //Guardar los datos en localStorage
-            for (const key in updatedData) {
-                localStorage.setItem(key, updatedData[key]);
+            };// Enviar datos actualizados al servidor
+            const response = await fetch('/editProfile', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(updatedData),
+            });
+
+            if (response.ok) {
+                alert("Perfil actualizado correctamente.");
+            } else {
+                alert("Error al actualizar el perfil.");
             }
-    
-            alert("Perfil actualizado correctamente.");
         });
-    });
+    }
     
     const logoutButton = document.querySelector("#logoutButton");
     if (logoutButton) {
-        logoutButton.addEventListener("click", function() {
-            localStorage.removeItem("loggedIn");
-            window.location.href = "index.html"; 
+        logoutButton.addEventListener("click", async function () {
+            // Solicitar al servidor el cierre de sesión
+            const response = await fetch('/logout', { method: 'POST' });
+            if (response.ok) {
+                window.location.href = "/";
+            } else {
+                alert("Error al cerrar sesión.");
+            }
         });
     }
 });

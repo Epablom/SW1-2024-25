@@ -1,12 +1,12 @@
 const express = require('express');
 const path = require('path');
-var createError = require('http-errors');   // módulo para manejar errores HTTP
-var http = require('http');
-var session = require('express-session');
-var cookieParser = require('cookie-parser');
+const createError = require('http-errors');   // módulo para manejar errores HTTP
+const http = require('http');
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
 
-var app = express();
-var PORT = process.env.PORT || 3000;
+let app = express();
+const PORT = process.env.PORT || 3000;
 
 
 // Middleware para determinar si es admin
@@ -14,7 +14,6 @@ app.use((req, res, next) => {
   res.locals.isAdmin = false;
   next();
 });
-
 
 // Configuración de EJS como motor de vistas y views el directorio de las vistas
 app.set('views', path.join(__dirname, 'views'));
@@ -26,6 +25,22 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({
+  secret: "El string que queráis",
+  resave: false,
+  saveUninitialized: true
+}));
+app.use((req,res,next) => {
+  const message = req.session.message;
+  const error = req.session.error;
+  delete req.session.message;
+  delete req.session.error;
+  res.locals.message = "";
+  res.locals.error = "";
+  if(message){res.locals.message = `<p>${message}</p>`};
+  if(error){res.locals.error = `<p>${error}</p>`};
+  next();
+});
 
 var indexRouter = require('./routes/index');
 var alertasRouter = require('./routes/alertas');
@@ -76,7 +91,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
 
 // Crear el servidor HTTPs
 const server = http.createServer(app);
