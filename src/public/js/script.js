@@ -105,15 +105,11 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function validateForm() {
-    let name = document.getElementById("username").value;
+    let username = document.getElementById("username").value;
     let email = document.getElementById("email").value;
-    let university = document.getElementById("university").value;
-    let faculty = document.getElementById("faculty").value;
-    let degree = document.getElementById("degree").value;
-    let course = document.getElementById("course").value;
 
-    if (name == "" || university == "" || faculty == "" || degree == "" || course == "") {
-      alert("Revisa los campos del formulario");
+    if (username == "") {
+      alert("Por favor, introduzca un nombre de usuario");
       return false;
     }
 

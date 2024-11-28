@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-//const database = require('../database');
+const userService = require('./userService');
+const db = require('./Connection');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -8,18 +9,20 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', async function(req, res, next) {
-    const username = req.body.usernameLogin;
-    const password = req.body.passwordLogin;
+    const { username, password } = req.body;
 
-    //Comprobación si el usuario es correcto
-    /*if(await database.users.isLoginRight(username, req.body.pass)){
+    await db.connect("ConnectionWeb1");
+    //comprobamos si usuario existe
+    const user = await userService.findUserByUsername(username);
+    
+    if (user && user.password === password) {
         req.session.message = "¡Login correcto!";
-        req.session.user = {username};
+        req.session.user = { username };
         res.redirect('profile');
     } else {
         req.session.error = "Usuario o contraseña incorrectas";
         res.redirect('login');
-    }*/
+    }
 });
 
 module.exports = router;

@@ -16,4 +16,19 @@ async function findUserByUsername(username) {
     return user;
 }
 
-module.exports = { createUser, findUserByUsername };
+async function getUserByID(userID) {
+    const users = db.getCollection("users");
+    const user = await users.findOne({ _id: new ObjectId(userID) });
+    return user;
+}
+
+async function updateUserByID(userID, updatedData) {
+    const users = db.getCollection("users");
+    const result = await users.updateOne(
+        { _id: new ObjectId(userID) },
+        { $set: updatedData }
+    );
+    return result.modifiedCount > 0; //Devuelve true si se actualizó algo
+}
+
+module.exports = { createUser, findUserByUsername, getUserByID, updateUserByID };
