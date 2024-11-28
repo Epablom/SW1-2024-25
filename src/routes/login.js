@@ -4,7 +4,7 @@ const userService = require('./userService');
 const db = require('./Connection');
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/login', function(req, res, next) {
   res.render('login', { user: req.session.user});
 });
 
@@ -18,10 +18,10 @@ router.post('/', async function(req, res, next) {
     if (user && user.password === password) {
         req.session.message = "¡Login correcto!";
         req.session.user = { username };
-        res.redirect('profile');
+        res.redirect('/profile');
     } else {
         req.session.error = "Usuario o contraseña incorrectas";
-        res.redirect('login');
+        res.redirect('/login');
     }
 });
 

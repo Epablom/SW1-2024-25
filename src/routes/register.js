@@ -3,7 +3,7 @@ var router = express.Router();
 const userService = require('./userService');
 
 /* GET register page. */
-router.get('/', (req, res, next) => {
+router.get('/register', (req, res, next) => {
     res.render('register', { title: 'Registro', currentPage: 'register' })
 });
 
@@ -16,7 +16,9 @@ router.post('/', async (req, res) => {
         password, 
     };
 
-    const userId = await userService.createUser(userData);
+    const hashedPassword = await bcrypt.hash(password, 10); 
+    const user = new User({ username, email, password: hashedPassword });
+    await user.save();
 });
 
 module.exports = router;

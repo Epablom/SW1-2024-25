@@ -7,7 +7,7 @@ router.get('/', (req, res, next) => {
     res.render('profile', { title: 'Perfil', currentPage: 'profile' })
 });
 
-router.post('/:id/edit', async (req, res) => {
+router.post('/:id/editProfile', async (req, res) => {
     const userID = req.params.id;
     const updatedData = req.body; //para editar perfil
     
