@@ -4,7 +4,7 @@ const { MongoClient } = require("mongodb");
 class Database {
     constructor() {
         if (!Database.instance) {
-            this.client = new MongoClient("mongodb://localhost:27017");
+            this.client = new MongoClient("mongodb://0.0.0.0:27017");
             this.db = null; // Conexión a la base de datos
             Database.instance = this; // Instancia única
         }

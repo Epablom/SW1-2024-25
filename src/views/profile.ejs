@@ -12,48 +12,48 @@
         <!-- Main Content -->
         <main>
             <h1>Tu perfil</h1>
-
             <!-- User Info Section -->
-            <div class="profile">
-                
-                <div class="row">
-                    <div class="img-container"> 
-                        <img src="../images/users/1.jpg" alt="Foto de perfil">
-                        <span class="material-icons-sharp edit-icon edit-img-icon">editar</span>
+            <body>
+                <div class="profile">
+                    <!-- Información del usuario -->
+                    <div class="row">
+                        <div class="img-container">
+                            <img src="../images/users/1.jpg" alt="Foto de perfil">
+                            <span class="material-icons-sharp edit-icon edit-img-icon">editar</span>
+                        </div>
+                        <div class="text-container">
+                            <h2>Carlos_g<span class="material-icons-sharp edit-icon">editar</span></h2>
+                            <h2>Carlos García<span class="material-icons-sharp edit-icon">editar</span></h2>
+                        </div>
                     </div>
-                    <div class="text-container">
-                        <h2>Carlos_g <span class="material-icons-sharp edit-icon">editar</span></h2>
-                        <h2>Carlos García <span class="material-icons-sharp edit-icon">editar</span></h2>
+                    <br>
+                    <div class="row">
+                        <p>carlos@example.com<span class="material-icons-sharp edit-icon">editar</span></p>
+                        <p>GISI<span class="material-icons-sharp edit-icon">editar</span></p>
+                        <p class="description">Tengo los mejores apuntes de todo el CEU.<span class="material-icons-sharp edit-icon">editar</span></p>
                     </div>
                 </div>
-                <br>
-                <div class="row">
-                    <p>carlos@example.com <span class="material-icons-sharp edit-icon">editar</span></p>
-                    <p>GISI <span class="material-icons-sharp edit-icon">editar</span></p>
-                    <p class="description">Tengo los mejores apuntes de todo el CEU. <span class="material-icons-sharp edit-icon">editar</span></p>
+                <!-- Sección de publicaciones -->
+                <div class="options">
+                    <h2 class="active">Tus publicaciones</h2>
+                    <h2>Apuntes comprados</h2>
+                    <h2>Publicaciones guardadas</h2>
                 </div>
-            </div>
-
-            <!-- Alerts List Section -->
-            <div class="options">
-                <h2 class="active">Tus publicaciones</h2>
-                <h2>Apuntes comprados</h2>
-                <h2>Publicaciones guardadas</h2>
-            </div>
-            <br>
-
-            <div class="list">
-                <h2>Fundamentos y metodología de la historia de la educación</h2>
                 <br>
-                <img src="../images/publicacion1.png" alt="Publicación">
-            </div>
-            <br>
+                <div class="list">
+                    <h2>Fundamentos y metodología de la historia de la educación</h2>
+                    <br>
+                    <img src="../images/publicacion1.png" alt="Publicación">
+                </div>
+                <br>
         </main>
         <!-- End of Main Content -->
 
         <!-- Right Section -->
         <%- include('partials/rightBar') %>
         <!-- End of Right Section -->
+
+        <script src="../public/js/editProfile.js" defer></script>
     </div>                
 </body>
 </html>

@@ -10,9 +10,9 @@ async function createUser(userData) {
     return result.insertedId;
 }
 
-async function findUserByUsername(username) {
+async function findUserByUsername(name) {
     const users = db.getCollection("users");
-    const user = await users.findOne({ username });
+    const user = await users.findOne({ name });
     return user;
 }
 
