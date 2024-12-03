@@ -10,9 +10,13 @@ async function createUser(userData) {
     return result.insertedId;
 }
 
-async function findUserByUsername(name) {
+async function findUserByUsername(username) {
     const users = db.getCollection("users");
-    const user = await users.findOne({ name });
+    console.log("Buscando... :");
+    // const cursor = users.find(); // Obtiene el cursor
+    // await cursor.forEach(user => console.log(user)); // Itera y muestra cada usuario
+
+    const user = await users.findOne({ "username": username });
     return user;
 }
 

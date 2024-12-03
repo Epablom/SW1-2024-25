@@ -1,9 +1,14 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-/* GET messages. */
-router.get('/', (req, res, next) => {
-    res.render('messages', { title: 'Mensajes', currentPage: 'messages' })
+router.use((req, res, next) => {
+    res.locals.css = 'messages';
+    next();
+});
+
+// Ruta principal (profile)
+router.get('/', (req, res) => {
+    res.render('messages', { title: 'Mensajería', currentPage: 'messages' });
 });
 
 module.exports = router;

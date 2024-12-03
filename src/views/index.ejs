@@ -1,5 +1,5 @@
 <%- include('partials/head') %>
-
+<script defer src="./js/index.js"></script>
 <body>
 
   <!-- Login Panel -->
@@ -18,7 +18,12 @@
       <h3>¡Comienza a compartir apuntes!</h3>
       
       <div class="top-section" id="contactBar">
-        <!-- Contactos generados dinámicamente -->
+        <% users.forEach(user => { %>
+          <div class="tutor">
+            <img src="<%= user.imagelink %>" alt="<%= user.username %>">
+            <p><%= user.username %></p>
+          </div>
+        <% }) %>
       </div>
       
       <div class="main-content">
@@ -35,42 +40,14 @@
   
   </div>
 
-  <script>
-    const contactBar = document.getElementById('contactBar');
-    const contacts = [
-      'Carlos', 'Federico', 'Ana', 'María', 'Marta', 'Laura', 'Pedro', 'Luis', 'Pablo', 'Miguel', 'Isabel', 'Clara', 'Daniela', 'Sofía', 'Christian', 'Javier',
-      'Carlos', 'Federico', 'Ana', 'María', 'Marta', 'Laura', 'Pedro', 'Luis', 'Pablo', 'Miguel', 'Isabel', 'Clara', 'Daniela', 'Sofía', 'Christian', 'Javier'
-    ];
-
-    const images = [
-      "../images/users/1.jpg",
-      "../images/users/2.jpg",
-      "../images/users/3.jpg",
-      "../images/users/4.jpg",
-      "../images/users/5.jpg",
-      "../images/users/6.jpg",
-      "../images/users/7.jpg",
-      "../images/users/8.jpg"
-    ];
-
+  <script defer>
+    
     const publications = [
       "../images/news/noticias1.png",
       "../images/news/noticias2.png",
       "../images/news/noticias3.png",
       "../images/news/noticias4.png"
     ];
-    
-    // Generar elementos de contacto
-    contacts.forEach((contact, index) => {
-      const contactElement = document.createElement('div');
-      contactElement.className = 'tutor';
-      const imageIndex = index % images.length; // Usar el índice de la imagen cíclicamente
-      contactElement.innerHTML = `
-        <img src="${images[imageIndex]}" alt="Imagen de Perfil">
-        <p>${contact}</p>
-      `;
-      contactBar.appendChild(contactElement);
-    });
 
     const newsContainer = document.getElementById('newsContainer');
 
@@ -116,7 +93,7 @@
     }
   </script>
 
-    <script src="../public/js/index.js"></script>
+  
 
 </body>
 </html>

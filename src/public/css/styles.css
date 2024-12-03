@@ -240,6 +240,27 @@ aside .sidebar .message-count{
     border-radius: var(--border-radius-1);
 }
 
+.right-section .nav a {
+    color: var(--color-dark);
+    padding: 0.8rem 1.4rem;
+    border-radius: var(--border-radius-1);
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+    transition: all 0.3s ease;
+}
+
+.right-section .nav a.login{
+    background-color: var(--color-primary);
+}
+
+.right-section .nav a.signup{
+    background-color: var(--color-success);
+}
+
+.right-section .nav a:hover{
+    box-shadow: none;
+}
+
 @media screen and (max-width: 1200px) {
     aside .logo h2{
         display: none;
@@ -369,7 +390,7 @@ main{
     display: flex;
     justify-content: center;
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 2rem;
     background-color: var(--color-white);
     padding: var(--card-padding);
     border-radius: var(--card-border-radius);

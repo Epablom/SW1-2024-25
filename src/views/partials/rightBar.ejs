@@ -13,16 +13,26 @@
                 dark_mode
             </span>
         </div>
-
+        
         <div class="profile">
-            <div class="info">
-                <p>Hola, <b>Carlos</b></p>
-                <small class="text-muted">Admin</small>
-            </div>
-            <div class="profile-photo">
-                <img src="../images/users/9.jpg">
-            </div>
+            <% if (user) { %> 
+                <div class="info">
+                    <p>Hola, <b><%= user.username %></b></p>
+                    <% if (user.admin) { %>
+                        <small class="text-muted">admin</small>
+                    <% } %>
+                </div>
+                <div class="profile-photo">
+                    <img src="<%= user.profile %>" alt="Foto de perfil">
+                </div>
+            <% } else { %>
+                <div class="auth-buttons">
+                    <a onclick="openLoginPanel()" href="javascript:void(0);" class="login">Login</a>
+                    <a onclick="openRegisterPanel()" href="javascript:void(0);" class="signup">Sign Up</a>
+                </div>
+            <% } %>
         </div>
+        
 
     </div>
     <!-- End of Nav -->

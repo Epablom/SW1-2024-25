@@ -10,11 +10,13 @@
     background: rgba(0, 0, 0, 0.75);
     z-index: 9;
     opacity: 0;
+    display: none;
 }
 
 .overlay.show {
     opacity: 1;
     visibility: visible;
+    display: block;
 }
 
 .login-panel{

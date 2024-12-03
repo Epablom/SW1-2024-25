@@ -1,12 +1,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/login.css">
-    <script defer src="./js/script.js"></script>
     
     <!-- Overlay oscuro para el fondo cuando aparezca el panel de login -->
-    <div id="overlay" class="overlay show"></div>
+    <div id="overlay" class="overlay"></div>
 
-    <div id="loginPanel" class="login-panel show">
+    <div id="loginPanel" class="login-panel">
         <!--Form sign up-->
         <div class="form-container sign-up">
             <form action="/register" method="post">
@@ -70,5 +69,22 @@
     loginBtn.addEventListener('click', () => {
         container.classList.remove("active");
     });
+
+    // Funciones para abrir y cerrar el panel de login
+    function openLoginPanel() {
+        document.getElementById('overlay').classList.add('show');
+        document.getElementById('loginPanel').classList.add('show');
+    }
+
+    function openRegisterPanel() {
+        document.getElementById('overlay').classList.add('show');
+        document.getElementById('loginPanel').classList.add('show');
+        container.classList.add("active");
+    }
+
+    function closeLoginPanel() {
+        document.getElementById('overlay').classList.remove('show');
+        document.getElementById('loginPanel').classList.remove('show');
+    }
 </script>
 
