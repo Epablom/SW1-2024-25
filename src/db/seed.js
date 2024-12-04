@@ -65,11 +65,36 @@ async function seedDatabase(db) {
         { chat_id: 10, user_id: 10, content: "Hola a todos", time: new Date() }
         
     ];
+
+    const news = [
+        { id: 1, user_id: 1, title: "Nueva tecnología en GISI", docroute: "../images/news/noticias1.png", time: new Date(), likes: [2, 3, 4] },
+        { id: 2, user_id: 2, title: "Importancia de la programación en la universidad", docroute: "../images/news/noticias2.png", time: new Date(), likes: [1, 5, 6] },
+        { id: 3, user_id: 3, title: "Pequeñas sorpresas, grandes recuerdos", docroute: "../images/news/anuncio1.png", time: new Date(), likes: [1, 2, 6, 7] },
+        { id: 4, user_id: 4, title: "Tendencias en ingeniería informática", docroute: "../images/news/noticias3.png", time: new Date(), likes: [8, 9] },
+        { id: 5, user_id: 5, title: "Aplicaciones innovadoras en electrónica", docroute: "../images/news/noticias4.png", time: new Date(), likes: [1, 4, 10] },
+        { id: 6, user_id: 6, title: "A tu manera", docroute: "../images/news/anuncio2.png", time: new Date(), likes: [3, 4, 5] },
+        { id: 7, user_id: 7, title: "Inteligencia artificial aplicada a redes", docroute: "../images/news/noticias5.png", time: new Date(), likes: [2, 3, 9] },
+        { id: 8, user_id: 8, title: "Proyectos destacados de estudiantes", docroute: "../images/news/noticias6.png", time: new Date(), likes: [1, 6, 7, 8] },
+        { id: 9, user_id: 9, title: "Cómo optimizar el aprendizaje en tecnología", docroute: "../images/news/noticias7.png", time: new Date(), likes: [2, 4] },
+        { id: 10, user_id: 10, title: "Es lo que quiero", docroute: "../images/news/anuncio3.png", time: new Date(), likes: [1, 3, 6, 7] },
+        { id: 11, user_id: 11, title: "Estudios en GISI: Experiencias", docroute: "../images/news/noticias8.png", time: new Date(), likes: [5, 6, 9] },
+        { id: 12, user_id: 12, title: "Aplicaciones prácticas de blockchain", docroute: "../images/news/noticias9.png", time: new Date(), likes: [1, 2] },
+        { id: 13, user_id: 13, title: "Nada sabe como mmMmMcDonald's", docroute: "../images/news/anuncio4.png", time: new Date(), likes: [2, 3, 10] },
+        { id: 14, user_id: 14, title: "Electrónica aplicada a la robótica", docroute: "../images/news/noticias10.png", time: new Date(), likes: [3, 4, 8] },
+        { id: 15, user_id: 15, title: "Destapa la felicidad", docroute: "../images/news/anuncio5.png", time: new Date(), likes: [1, 2, 9] },
+        { id: 16, user_id: 16, title: "Casos prácticos en la industria", docroute: "../images/news/noticias11.png", time: new Date(), likes: [4, 5, 10] },
+        { id: 17, user_id: 1, title: "Retos actuales en ingeniería informática", docroute: "../images/news/noticias12.png", time: new Date(), likes: [2, 6, 8] },
+        { id: 18, user_id: 2, title: "El mejor dron de la historia", docroute: "../images/news/anuncio6.png", time: new Date(), likes: [3, 4, 7] },
+        { id: 19, user_id: 3, title: "Cómo estructurar un proyecto exitoso", docroute: "../images/news/noticias13.png", time: new Date(), likes: [1, 9, 10] },
+        { id: 20, user_id: 4, title: "La importancia de la ciberseguridad", docroute: "../images/news/noticias14.png", time: new Date(), likes: [2, 5, 6] }
+    ];
+    
     
 
     await db.collection("Users").insertMany(users);
     await db.collection("Chats").insertMany(chats);
     await db.collection("Messages").insertMany(messages);
+    await db.collection("News").insertMany(news);
 
     console.log("Datos iniciales insertados.");
 }

@@ -28,7 +28,19 @@
       
       <div class="main-content">
           <div class="news-container" id="newsContainer">
-          <!-- Noticias y anuncios generados dinámicamente -->
+            <% news.forEach(single => { %>
+              <div class="box">
+                <img src="<%= single.docroute %>" alt="<%= single.title %>">
+                <div class="content-details">
+                  <h3><%= single.title %></h3>
+                </div>
+                <div class="buttons">
+                  <i class="fas fa-heart"><%= single.likes.length %></i>
+                  <i class="fas fa-arrow-right"></i>
+                  <i class="fas fa-save"></i>
+                </div>
+              </div>
+            <% }) %>
           </div>
       </div>
     </main>
@@ -39,62 +51,6 @@
     <!-- End of right section -->
   
   </div>
-
-  <script defer>
-    
-    const publications = [
-      "../images/news/noticias1.png",
-      "../images/news/noticias2.png",
-      "../images/news/noticias3.png",
-      "../images/news/noticias4.png"
-    ];
-
-    const newsContainer = document.getElementById('newsContainer');
-
-    // Función para generar contenido de noticias con la estructura original
-    function createNewsItem(index) {
-      const newsItem = document.createElement('div');
-      newsItem.className = 'box';
-      const publicationIndex = (index - 1) % publications.length;
-      newsItem.innerHTML = `
-        <img src="${publications[publicationIndex]}" alt="Publicación">
-        <div class="content-details">
-          <h3>Titulo de la publicación</h3>
-          <p>Subtitulo</p>
-        </div>
-        <div class="buttons">
-          <i class="fas fa-heart"></i>
-          <i class="fas fa-arrow-right"></i>
-          <i class="fas fa-save"></i>
-        </div>
-      `;
-      return newsItem;
-    }
-
-    // Función para generar contenido de anuncio sin botones
-    function createAdItem() {
-      const adItem = document.createElement('div');
-      adItem.className = 'ad-box';
-      adItem.innerHTML = `
-        <img src="../images/anuncio1.png" alt="Anuncio">
-        <h3>Anuncio Especial</h3>
-        <p>Contenido promocional</p>
-      `;
-      return adItem;
-    }
-
-    // Generar contenido de noticias y agregar anuncios en posiciones específicas
-    for (let i = 1; i <= 15; i++) {
-      if (i === 2 || i === 5 || i === 8) { // Agregar anuncios en la segunda, quinta y octava posición
-        newsContainer.appendChild(createAdItem());
-      } else {
-        newsContainer.appendChild(createNewsItem(i));
-      }
-    }
-  </script>
-
-  
-
 </body>
 </html>
 

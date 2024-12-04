@@ -5,31 +5,22 @@ class Database {
     static instance = null;
 
     constructor() {
-        // console.log("Buscando instancia...");
-        // console.log("This.db at the beggining is", this.db);
         if (Database.instance) {
             return Database.instance;
         }
-        // console.log("Instancia no encontrada. Creando nueva instancia...");
         this.client = new MongoClient("mongodb://127.0.0.1:27017");
-        // console.log("Cliente creado.");
         this.db = null;
         this.connect();
-        // console.log("Conectando a la base de datos...");
         
         Database.instance = this;
-        // console.log("This.db is", this.db);
     }
 
     async connect(databaseName = "StudyHub") {
-        if (this.db) return this.db; // Devuelve la instancia si ya está conectada
-        // console.log("Conectando a la base de datos...");
+        if (this.db) return this.db;
         try {
             const adminDb = this.client.db().admin();
             const databases = await adminDb.listDatabases();
             const dbExists = databases.databases.some(db => db.name === databaseName);
-            // console.log("Databases:", databases);
-            // console.log("Database exists:", dbExists);
 
             if (!dbExists) {
                 console.log(`Base de datos "${databaseName}" no encontrada. Inicializando...`);

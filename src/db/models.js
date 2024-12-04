@@ -29,9 +29,9 @@ const Models = {
         id: "integer",
         user_id: "integer",
         title: "string",
-        text: "string",
+        docroute: "string",
         time: "timestamp",
-        likes: "integer"
+        likes: "list"
     },
     Message: {
         chat_id: "integer",
