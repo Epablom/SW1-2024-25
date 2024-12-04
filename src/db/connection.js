@@ -50,32 +50,36 @@ class Database {
     }
 
     async getUserById(userId) {
-        return await this.getCollection("Users").findOne({ id: userId });
+        return await this.getCollection("User").findOne({ "id": userId });
+    }
+
+    async getUserByEmail(email) {
+        return await this.getCollection("User").findOne({ "email": email });
     }
 
     async getPasswordByUsername(username) {
-        const user = await this.getCollection("Users").findOne({ username });
+        const user = await this.getCollection("User").findOne({ username });
         return user ? user.password : null;
     }
 
     async getChatById(chatId) {
-        return await this.getCollection("Chats").findOne({ id: chatId });
+        return await this.getCollection("Chat").findOne({ id: chatId });
     }
 
     async getMessagesByChatId(chatId) {
-        return await this.getCollection("Messages").find({ chat_id: chatId }).toArray();
+        return await this.getCollection("Message").find({ chat_id: chatId }).toArray();
     }
 
     async insertUser(userData) {
-        return await this.getCollection("Users").insertOne(userData);
+        return await this.getCollection("User").insertOne(userData);
     }
 
     async insertMessage(messageData) {
-        return await this.getCollection("Messages").insertOne(messageData);
+        return await this.getCollection("Message").insertOne(messageData);
     }
 
     async insertChat(chatData) {
-        return await this.getCollection("Chats").insertOne(chatData);
+        return await this.getCollection("Chat").insertOne(chatData);
     }
 }
 

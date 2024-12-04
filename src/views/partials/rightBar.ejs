@@ -1,3 +1,6 @@
+
+<%- include('./login') %>
+
 <div class="right-section">
     <div class="nav">
         <button id="menu-btn">
@@ -15,19 +18,22 @@
         </div>
         
         <div class="profile">
-            <% if (user) { %> 
+            <% if (mainUser) { %> 
                 <div class="info">
-                    <p>Hola, <b><%= user.username %></b></p>
-                    <% if (user.admin) { %>
+                    <p>Hola, <b><%= mainUser.username %></b></p>
+                    <% if (mainUser.admin) { %>
                         <small class="text-muted">admin</small>
+                    <% } else { %>
+                        <small class="text-muted">user</small>
                     <% } %>
                 </div>
                 <div class="profile-photo">
-                    <img src="<%= user.profile %>" alt="Foto de perfil">
+                    <img src="<%= mainUser.imagelink %>" alt="Foto de perfil">
                 </div>
+                <a onclick="logOut()" href="javascript:void(0)" class="logout">Log out</a>
             <% } else { %>
                 <div class="auth-buttons">
-                    <a onclick="openLoginPanel()" href="javascript:void(0);" class="login">Login</a>
+                    <a onclick="openLoginPanel()" href="javascript:void(0);" class="login">Log in</a>
                     <a onclick="openRegisterPanel()" href="javascript:void(0);" class="signup">Sign Up</a>
                 </div>
             <% } %>
@@ -37,13 +43,13 @@
     </div>
     <!-- End of Nav -->
 
-    <div class="user-profile">
+    <a href="/"><div class="user-profile">
         <div class="logo">
             <img src="../images/StudyHub_rectangular.png">
             <h2>CEU Study Hub</h2>
             <p>Tu mejor aliado en la uni</p>
         </div>
-    </div>
+    </div></a>
 
     <div class="reminders">
         <div class="header">

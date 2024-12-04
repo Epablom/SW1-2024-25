@@ -1,7 +1,7 @@
 const seedDatabase = require('./seed');
 
 async function initializeDatabase(client, databaseName) {
-    const collections = ["User", "Notes", "News", "Messages", "Chat", "Reports"];
+    const collections = ["User", "Notes", "News", "Message", "Chat", "Reports"];
     const db = client.db(databaseName);
 
     try {

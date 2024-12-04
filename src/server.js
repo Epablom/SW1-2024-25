@@ -19,7 +19,7 @@ app.use(session({
   secret: "secreto",
   resave: false,
   saveUninitialized: true,
-  user: null
+  mainUser: null
 }));
 
 // Middleware para mensajes de sesión

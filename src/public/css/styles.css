@@ -119,13 +119,13 @@ b{
     width: 96%;
     margin: 0 auto;
     gap: 1.8rem;
-    grid-template-columns: 12rem minmax(0, 1fr) 23rem;
+    grid-template-columns: 12rem minmax(0, 1fr) 25rem;
 }
 
 @media screen and (max-width: 1200px) {
     .container{
         width: 95%;
-        grid-template-columns: 7rem minmax(0, 1fr) 15rem;
+        grid-template-columns: 7rem minmax(0, 1fr);
     }
 }
 
@@ -255,6 +255,10 @@ aside .sidebar .message-count{
 
 .right-section .nav a.signup{
     background-color: var(--color-success);
+}
+
+.right-section .nav a.logout{
+    background-color: var(--color-danger);
 }
 
 .right-section .nav a:hover{
@@ -490,7 +494,7 @@ main{
     gap: 0.6rem;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
 
     .right-section .nav{
         position: fixed;

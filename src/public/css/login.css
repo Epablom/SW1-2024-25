@@ -20,7 +20,7 @@
 }
 
 .login-panel{
-    background-color: #fff;
+    background-color: var(--color-white);
     border-radius: 30px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
     position: fixed;
@@ -47,23 +47,19 @@
     line-height: 20px;
     letter-spacing: 0.3px;
     margin: 20px 0;
-    color: #fff;
-}
-
-.login-panel span{
-    font-size: 12px;
+    color: var(--color-white);
 }
 
 .login-panel a{
-    color: #333;
+    color: var(--color-dark);
     font-size: 13px;
     text-decoration: none;
     margin: 15px 0 10px;
 }
 
 .login-panel button{
-    background-color: #512da8;
-    color: #fff;
+    background-color: var(--color-success);
+    color: var(--color-white);
     font-size: 12px;
     padding: 10px 45px;
     border: 1px solid transparent;
@@ -77,11 +73,11 @@
 
 .login-panel button.hidden{
     background-color: transparent;
-    border-color: #fff;
+    border-color: var(--color-white);
 }
 
 .login-panel form{
-    background-color: #fff;
+    background-color: var(--color-white);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -91,7 +87,7 @@
 }
 
 .login-panel input{
-    background-color: #eee;
+    background-color: var(--color-background);
     border: none;
     margin: 8px 0;
     padding: 10px 15px;
@@ -132,6 +128,18 @@
     animation: move 0.6s;
 }
 
+button:disabled{
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    cursor: not-allowed;
+}
+
+input:disabled{
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    cursor: not-allowed;
+}
+
 @keyframes move{
     0%, 49.99%{
         opacity: 0;
@@ -148,7 +156,7 @@
 }
 
 .login-panel .social-icons a{
-    border: 1px solid #ccc;
+    border: 1px solid var(--color-background);
     border-radius: 20%;
     display: inline-flex;
     justify-content: center;
@@ -176,10 +184,10 @@
 }
 
 .login-panel .toggle{
-    background-color: #512da8;
+    background-color: var(--color-primary);
     height: 100%;
-    background: linear-gradient(to right, #5c6bc0, #512da8);
-    color: #fff;
+    background: linear-gradient(to right, var(--color-primary-variant), var(--color-primary));
+    color: var(--color-white);
     position: relative;
     left: -100%;
     height: 100%;
