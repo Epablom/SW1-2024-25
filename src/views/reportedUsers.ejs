@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/head') %>
+
+<body>
+    <div class="container">
+        <!-- Sidebar Section -->
+        <%- include('partials/leftBar') %>
+        <!-- End of Sidebar Section -->
+
+        <!-- Main Content -->
+        <main>
+            <h1>Usuarios Reportados</h1>
+
+            <div id="reported-users-list">
+                <!-- Aquí se generará dinámicamente la lista de usuarios reportados -->
+            </div>
+        </main>
+
+        <!-- Right Section -->
+        <%- include('partials/rightBar') %>
+        <!-- End of right section -->
+    </div>
+
+    <script src="../public/js/reportedUsers.js"></script>
+    <script src="../public/js/index.js"></script>
+</body>
+
+</html>

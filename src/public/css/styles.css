@@ -2,6 +2,7 @@
 
 :root{
     --color-primary: #6C9BCF;
+    --color-primary-variant: #3b6699;
     --color-danger: #FF0060;
     --color-success: #1B9C85;
     --color-warning: #F7D060;
@@ -118,13 +119,13 @@ b{
     width: 96%;
     margin: 0 auto;
     gap: 1.8rem;
-    grid-template-columns: 12rem auto 23rem;
+    grid-template-columns: 12rem minmax(0, 1fr) 25rem;
 }
 
 @media screen and (max-width: 1200px) {
     .container{
         width: 95%;
-        grid-template-columns: 7rem auto 23rem;
+        grid-template-columns: 7rem minmax(0, 1fr);
     }
 }
 
@@ -237,6 +238,31 @@ aside .sidebar .message-count{
     color: var(--color-white);
     font-size: 11px;
     border-radius: var(--border-radius-1);
+}
+
+.right-section .nav a {
+    color: var(--color-dark);
+    padding: 0.8rem 1.4rem;
+    border-radius: var(--border-radius-1);
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+    transition: all 0.3s ease;
+}
+
+.right-section .nav a.login{
+    background-color: var(--color-primary);
+}
+
+.right-section .nav a.signup{
+    background-color: var(--color-success);
+}
+
+.right-section .nav a.logout{
+    background-color: var(--color-danger);
+}
+
+.right-section .nav a:hover{
+    box-shadow: none;
 }
 
 @media screen and (max-width: 1200px) {
@@ -368,7 +394,7 @@ main{
     display: flex;
     justify-content: center;
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 2rem;
     background-color: var(--color-white);
     padding: var(--card-padding);
     border-radius: var(--card-border-radius);
@@ -468,7 +494,7 @@ main{
     gap: 0.6rem;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
 
     .right-section .nav{
         position: fixed;
@@ -508,11 +534,6 @@ main{
     }
 
 }
-
-
-
-
-
 
 
 .apuntes {

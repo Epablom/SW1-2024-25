@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/head') %>
+
+<body>
+  <div class="container">
+      <!-- Sidebar Section -->
+      <%- include('partials/leftBar') %>
+      <!-- End of Sidebar Section -->
+
+      <!-- Main Content -->
+      <main>
+          <h1>Usuarios</h1>
+          <br>
+          <h2>Lista de Usuarios</h2>
+          <div class="list">
+            <table>
+              <thead>
+                <tr>
+                  <th>Nombre de usuario</th>
+                  <th>Correo</th>
+                  <th>Alertas</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+      </main>
+
+      <!-- Right Section -->
+      <%- include('partials/rightBar') %>
+      <!-- End of right section -->
+  </div>
+
+  <script src="../public/js/users.js"></script>
+  <script src="../public/js/index.js"></script>
+</body>
+
+</html>

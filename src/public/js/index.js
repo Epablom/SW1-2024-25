@@ -18,4 +18,5 @@ darkMode.addEventListener('click', () => {
     darkMode.querySelector('span:nth-child(2)').classList.toggle('active');
 })
 
-
+// Cerrar el panel al hacer clic fuera del área del panel
+document.getElementById('overlay').addEventListener('click', closeLoginPanel);
