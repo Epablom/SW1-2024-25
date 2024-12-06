@@ -1,8 +1,13 @@
 function isAuthenticated(req, res, next) {
-    if (!req.session.user) {
+    console.log('Verificando autenticación, user en sesión:', req.session.mainUser);
+
+    if (!req.session.mainUser) {
         req.session.error = "Debes iniciar sesión para acceder a esta página.";
         return res.redirect('/');
     }
+    
+    req.session.user = req.session.mainUser;
+
     next();
 }
 
