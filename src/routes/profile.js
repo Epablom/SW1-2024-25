@@ -8,7 +8,7 @@ router.use((req, res, next) => {
 
 // Ruta principal (profile)
 router.get('/', (req, res) => {
-    res.render('profile', { title: 'Perfil', currentPage: 'profile' });
+    res.render('profile', { title: 'Perfil', currentPage: 'profile',   mainUser: req.session.mainUser });
 });
 
 // Ruta para editProfile
