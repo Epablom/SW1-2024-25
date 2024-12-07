@@ -39,11 +39,9 @@ app.use((req, res, next) => {
 // Middleware para determinar si es admin
 app.use((req, res, next) => {
   if (!res.locals.isAdmin) { res.locals.isAdmin = false; }
-  if (!req.session.user) { res.locals.user = null; }
-  if (req.session.user) { res.locals.user = req.session.user; }
-  if (req.session.user && req.session.user.role === 'admin') {
-    res.locals.isAdmin = true;
-  }
+  if (!req.session.mainUser) { res.locals.mainUser = null; }
+  if (req.session.mainUser) { res.locals.mainUser = req.session.mainUser; }
+  if (req.session.mainUser) { res.locals.isAdmin = req.session.mainUser.admin; }
   next();
 });
 

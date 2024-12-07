@@ -68,6 +68,7 @@ router.post('/login', async (req, res) => {
 // Cierre de sesión
 router.post('/logout', (req, res) => {
     req.session.destroy();
+    console.log("Sesión cerrada correctamente.");
     return res.json({ success: "Sesión cerrada correctamente." });
 });
 

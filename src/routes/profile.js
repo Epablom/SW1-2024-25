@@ -14,11 +14,6 @@ router.get('/', (req, res) => {
     res.render('profile', { title: 'Perfil', currentPage: 'profile',   mainUser: req.session.mainUser });
 });
 
-// Ruta para editProfile
-router.get('/editProfile', (req, res) => {
-    res.render('editProfile', { title: 'Editar Perfil', currentPage: 'editProfile' });
-});
-
 // Ruta para resetPassword
 router.get('/resetPassword', (req, res) => {
     res.render('resetPassword', { title: 'Reiniciar Contraseña', currentPage: 'resetPassword' });
