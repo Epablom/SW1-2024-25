@@ -1,55 +1,61 @@
 const Models = {
     User: {
-        _id: "integer",
-        username: "string",
-        password: "string",
-        email: "string",
-        degree: "string",
-        degreeyear: "integer",
-        university: "string",
-        faculty: "string",
-        description: "string",
-        imagelink: "string",
-        admin: "boolean",
-        isBanned: "boolean"
+        _id: "ObjectId", // Identificador único
+        username: "string", // Nombre de usuario visible
+        password: "string", // Contraseña encriptada
+        email: "string", // Correo electrónico del usuario
+        degree: "string", 
+        degreeYear: "integer", 
+        university: "string", 
+        faculty: "string", 
+        description: "string", 
+        imageLink: "string", 
+        isAdmin: "boolean", 
+        isBanned: "boolean" 
     },
     Notes: {
-        id: "integer",
-        user_id: "integer",
+        _id: "ObjectId",
+        userId: "ObjectId",
         title: "string",
         description: "string",
         degree: "string",
         subject: "string",
         year: "integer",
-        notesroute: "string",
-        price: "money",
-        numpurchases: "integer"
+        notesRoute: "string",
+        price: "number",
+        numPurchases: "integer"
     },
     News: {
-        id: "integer",
-        user_id: "integer",
+        _id: "ObjectId",
+        userId: "ObjectId",
         title: "string",
-        docroute: "string",
-        time: "timestamp",
-        likes: "list"
+        docRoute: "string",
+        timestamp: "Date",
+        likes: ["ObjectId"]
     },
     Message: {
-        chat_id: "integer",
-        user_id: "integer",
-        content: "string",
-        time: "timestamp"
+        _id: "ObjectId", // Identificador único
+        chatId: "ObjectId", // Se refiere al chat
+        userId: "ObjectId", // Se refiere al usuario (remitente)
+        content: "string", // Contenido del mensaje
+        time: "Date" // Hora en que se envió el mensaje
     },
     Chat: {
-        id: "integer",
-        users_ids: "array",
-        name: "string"
+        _id: "ObjectId", // Identificador único
+        userId: "ObjectId",
+        receiverId: "ObjectId",
+        name: "string" // Nombre del chat (opcional, para chats grupales)
     },
-    Reports: {
-        id: "integer",
-        user_id: "integer",
+    Report: {
+        _id: "ObjectId",
+        userId: "ObjectId",
         description: "string",
-        status: "string"
+        status: {
+            type: "string", 
+            enum: ["pending", "reviewed", "resolved"]
+        }
     }
 };
+
 
 module.exports = Models;
