@@ -32,4 +32,19 @@ router.get('/resources', (req, res) => {
     res.render('resources', { title: 'Recursos', currentPage: 'resources' });
 });
 
+// Ruta para archivo
+router.get('/', (req, res) => {
+    res.render('', { title: 'Archivos', currentPage: '' });
+});
+
+// Ruta para alertas
+router.get('/alertas', (req, res) => {
+    res.render('alertas', { title: 'Alertas', currentPage: 'alertas' });
+});
+
+//Ruta para historial de ventas
+router.get('/', (req, res) => {
+    res.render('', { title: 'Historial de ventas', currentPage: '' });
+});
+
 module.exports = router;

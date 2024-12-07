@@ -11,49 +11,90 @@
 
         <!-- Main Content -->
         <main>
-            <h1>Tu perfil</h1>
             <!-- User Info Section -->
-            <body>
-                <div class="profile">
-                    <!-- Información del usuario -->
-                    <div class="row">
-                        <div class="img-container">
-                            <img src="../images/users/1.jpg" alt="Foto de perfil">
-                            <span class="material-icons-sharp edit-icon edit-img-icon">editar</span>
-                        </div>
-                        <div class="text-container">
-                            <h2>Carlos_g<span class="material-icons-sharp edit-icon">editar</span></h2>
-                            <h2>Carlos García<span class="material-icons-sharp edit-icon">editar</span></h2>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <p>carlos@example.com<span class="material-icons-sharp edit-icon">editar</span></p>
-                        <p>GISI<span class="material-icons-sharp edit-icon">editar</span></p>
-                        <p class="description">Tengo los mejores apuntes de todo el CEU.<span class="material-icons-sharp edit-icon">editar</span></p>
+            <h1>Tu perfil</h1>
+            <div class="profile">
+                <!-- Información del usuario -->
+                <div class="row">
+                    <div class="img-container">
+                        <img src="../images/users/1.jpg" alt="Foto de perfil">
+                        <span class="material-icons-sharp edit-icon edit-img-icon" onclick="editField('profile-img')">editar</span>
                     </div>
                 </div>
-                <!-- Sección de publicaciones -->
-                <div class="options">
-                    <h2 class="active">Tus publicaciones</h2>
-                    <h2>Apuntes comprados</h2>
-                    <h2>Publicaciones guardadas</h2>
+                <!--ESTO NO FUNCIONA!-->
+                <div id="profile-img-display" class="hidden">
+                    <form id="profile-img-form" class="edit-form" method="POST" action="/profile/edit" enctype="multipart/form-data">
+                        <input type="file" name="profileImage" accept="image/*">
+                        <button type="submit">Guardar</button>
+                        <button type="button" onclick="cancelEdit('profile-img')">Cancelar</button>
+                    </form>
                 </div>
-                <br>
-                <div class="list">
-                    <h2>Fundamentos y metodología de la historia de la educación</h2>
-                    <br>
-                    <img src="../images/publicacion1.png" alt="Publicación">
+                <div class="text-container">
+                    <!-- Username -->
+                    <p id="username-display">
+                        <%= mainUser.username %>
+                        <span class="material-icons-sharp edit-icon" onclick="editField('username')">editar</span>
+                    </p>
+                    <form id="username-form" class="edit-form hidden" method="POST" action="/profile/edit">
+                        <input type="text" name="username" value="<%= mainUser.username %>">
+                        <button type="submit">Guardar</button>
+                        <button type="button" onclick="cancelEdit('username')">Cancelar</button>
+                    </form>
                 </div>
+                <div class="row">
+                    <!-- Email -->
+                    <p id="email-display">
+                        <%= mainUser.email %>
+                        <span class="material-icons-sharp edit-icon" onclick="editField('email')">editar</span>
+                    </p>
+                    <form id="email-form" class="edit-form hidden" method="POST" action="/profile/edit">
+                        <input type="email" name="email" value="<%= mainUser.email %>">
+                        <button type="submit">Guardar</button>
+                        <button type="button" onclick="cancelEdit('email')">Cancelar</button>
+                    </form>
+                    <!-- Degree -->
+                    <p id="degree-display">
+                        <%= mainUser.degree %>
+                        <span class="material-icons-sharp edit-icon" onclick="editField('degree')">editar</span>
+                    </p>
+                    <form id="degree-form" class="edit-form hidden" method="POST" action="/profile/edit">
+                        <input type="text" name="degree" value="<%= mainUser.degree %>">
+                        <button type="submit">Guardar</button>
+                        <button type="button" onclick="cancelEdit('degree')">Cancelar</button>
+                    </form>
+                    <!-- Description -->
+                    <p id="description-display" class="description">
+                        <%= mainUser.description %>
+                        <span class="material-icons-sharp edit-icon" onclick="editField('description')">editar</span>
+                    </p>
+                    <form id="description-form" class="edit-form hidden" method="POST" action="/profile/edit">
+                        <textarea name="description" rows="3"><%= mainUser.description %></textarea>
+                        <button type="submit">Guardar</button>
+                        <button type="button" onclick="cancelEdit('description')">Cancelar</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Sección de publicaciones -->
+            <div class="options">
+                <h2 class="active">Tus publicaciones</h2>
+                <h2>Apuntes comprados</h2>
+                <h2>Publicaciones guardadas</h2>
+            </div>
+            <br>
+            <div class="list">
+                <h2>Fundamentos y metodología de la historia de la educación</h2>
                 <br>
-        </main>
+                <img src="../images/publicacion1.png" alt="Publicación">
+            </div>
+            <br>
+        </main>        
         <!-- End of Main Content -->
 
         <!-- Right Section -->
         <%- include('partials/rightBar') %>
         <!-- End of Right Section -->
 
-        <script src="../public/js/editProfile.js" defer></script>
+        <script src="/js/editProfile.js" defer></script>
     </div>                
 </body>
 </html>

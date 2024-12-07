@@ -31,4 +31,9 @@ router.get('/users', (req, res) => {
     res.render('users', { title: 'Usuarios', currentPage: 'users' });
 });
 
+//Ruta para historial de ventas
+router.get('/', (req, res) => {
+    res.render('', { title: 'Historial de ventas', currentPage: '' });
+});
+
 module.exports = router;

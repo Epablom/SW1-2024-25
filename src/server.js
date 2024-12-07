@@ -60,7 +60,7 @@ app.post('/set-cookie-preferences', (req, res) => {
 });
 
 // Rutas principales
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'))); //el servidor está sirviendo como contenido estático todo lo que está dentro de la carpeta public
 app.use('/', require('./routes/main'));
 
 // Rutas protegidas por autenticación
