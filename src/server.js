@@ -2,8 +2,12 @@ const express = require('express');
 const path = require('path');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
+const http = require('http'); 
+const socketio = require('socket.io');
 
 const app = express();
+const server = http.createServer(app);
+const io = socketio(server);
 const PORT = process.env.PORT || 3000;
 
 // Configuración de EJS como motor de vistas y views el directorio de las vistas
@@ -83,3 +87,5 @@ app.use((req, res, next) => {
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
+
+

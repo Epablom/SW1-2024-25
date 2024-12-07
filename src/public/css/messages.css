@@ -47,12 +47,15 @@
     gap: 15px;
 }
 
+
 .chat-item {
-    padding: 15px;
+    width:200px;
+    padding: 5px;
     border-radius: 8px;
     background: #f8f9fa;
     cursor: pointer;
     transition: all 0.3s ease;
+    margin-left: 0px;
 }
 
 .chat-item:hover {
@@ -62,7 +65,7 @@
 .chat-item-content {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 1px;
 }
 
 .chat-item-info {
