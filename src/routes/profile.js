@@ -23,13 +23,10 @@ router.get('/resetPassword', (req, res) => {
 //TODO arreglarlo
 router.post('/edit', async (req, res) => {
     const { username, email, degree, description } = req.body;
-
     const userId = req.session.user._id;
-
     try {
         const userCollection = db.getCollection("User");
         const existingUser = await userCollection.findOne({ _id: new ObjectId(userId) });
-
         const updates = {
             username: username || existingUser.username,
             email: email || existingUser.email,
@@ -50,38 +47,30 @@ async function updateUser(userId, updates) {
     try {
         const userCollection = db.getCollection("User");
         const userIdInt = parseInt(userId, 10); //quitar si no es necesario parsear a integer
-
         const result = await userCollection.updateOne(
             { _id: userIdInt }, 
             { $set: updates }  
         );
-
         if (result.modifiedCount === 0) {
             throw new Error('No se actualizó ningún documento');
         }
-
         console.log(`Usuario ${userId} actualizado con éxito`);
     } catch (error) {
         console.error('Error actualizando el usuario:', error);
         throw error;
     }
 }*/
-
 async function updateUser(userId, updates) {
     try {
         const userCollection = db.getCollection("User");
-
         const objectId = new ObjectId(userId);  
-
         const result = await userCollection.updateOne(
             { _id: objectId },  
             { $set: updates }    
         );
-
         if (result.modifiedCount === 0) {
             throw new Error('No se actualizó ningún documento');
         }
-
         console.log(`Usuario ${userId} actualizado con éxito`);
     } catch (error) {
         console.error('Error actualizando el usuario:', error);

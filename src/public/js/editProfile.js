@@ -20,11 +20,9 @@ function cancelEdit(fieldId) {
     if (displayElement) {
         displayElement.classList.remove('hidden');
     }
-
     // Ocultar el formulario correspondiente
     const formElement = document.getElementById(`${fieldId}-form`);
     if (formElement) {
         formElement.classList.add('hidden');
     }
 }
-

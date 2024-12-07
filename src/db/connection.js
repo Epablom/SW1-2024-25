@@ -49,6 +49,10 @@ class Database {
         }
     }
 
+    async getAllUsers() {
+        return await this.getCollection("User").find().toArray(); // Fetches all users
+      }         
+
     async getUserById(userId) {
         return await this.getCollection("User").findOne({ "id": userId });
     }
@@ -66,8 +70,10 @@ class Database {
         return await this.getCollection("Chat").findOne({ id: chatId });
     }
 
-    async getMessagesByChatId(chatId) {
-        return await this.getCollection("Message").find({ chat_id: chatId }).toArray();
+    async getMessagesByChatId(id) {
+        return await this.getCollection('Message').find({
+            chatId: id
+        }).toArray();
     }
 
     async insertUser(userData) {

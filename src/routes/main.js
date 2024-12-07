@@ -4,12 +4,13 @@ const Database = require('../db/connection');
 
 const dbInstance = new Database();
 
+// Middleware to set default CSS
 router.use((req, res, next) => {
     res.locals.css = 'mainItems';
     next();
 });
 
-// Ruta principal (index)
+// Home Page
 router.get('/', async (req, res) => {
     try {
         const users = await dbInstance.getCollection('User').find({}).toArray();
@@ -22,12 +23,12 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Ruta para publication
+// Publications Page
 router.get('/publication', (req, res) => {
     res.render('publication', { title: 'Publicación', currentPage: 'publication' });
 });
 
-// Ruta para resources
+// Resources Page
 router.get('/resources', (req, res) => {
     res.render('resources', { title: 'Recursos', currentPage: 'resources' });
 });
