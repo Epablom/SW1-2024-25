@@ -46,6 +46,9 @@ app.use((req, res, next) => {
   next();
 });
 
+// Middleware para servir archivos desde /uploads
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 // Middleware para mostrar el popup de consentimiento de cookies
 app.use((req, res, next) => {
   res.locals.showCookiePopup = !req.cookies.cookiePreferences;
