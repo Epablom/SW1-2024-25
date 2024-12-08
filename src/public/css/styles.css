@@ -4,7 +4,7 @@
     --color-primary: #6C9BCF;
     --color-primary-variant: #3b6699;
     --color-danger: #FF0060;
-    --color-success: #1B9C85;
+    --color-success: #22cb38;
     --color-warning: #F7D060;
     --color-white: #fff;
     --color-info-dark: #7d8da1;
@@ -342,9 +342,10 @@ main{
 }
 
 .right-section .nav{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto 2fr;
     justify-content: end;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .right-section .nav button{
@@ -379,7 +380,7 @@ main{
 
 .right-section .nav .profile{
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
     text-align: right;
 }
 

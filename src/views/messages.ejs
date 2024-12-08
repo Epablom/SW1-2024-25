@@ -82,7 +82,7 @@
                     placeholder="Type your message..."
                     required
                   ></textarea>
-                  <button type="submit">
+                  <button type="submit" id="sendButton">
                     <i class="fas fa-paper-plane"></i>
                   </button>
                 </div>
@@ -216,6 +216,29 @@
           messagesList.appendChild(messageDiv);
           messagesList.scrollTop = messagesList.scrollHeight; // Scroll to the bottom
         }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+          const messageInput = document.getElementById('messageContent');
+          const sendButton = document.getElementById('sendButton'); // Asumiendo que tienes un botón de enviar
+
+          messageInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+              if (event.shiftKey) {
+                // Permite un salto de línea
+                const cursorPos = messageInput.selectionStart;
+                const textBeforeCursor = messageInput.value.substring(0, cursorPos);
+                const textAfterCursor = messageInput.value.substring(cursorPos);
+                messageInput.value = `${textBeforeCursor}\n${textAfterCursor}`;
+                messageInput.selectionStart = messageInput.selectionEnd = cursorPos + 1;
+                event.preventDefault(); // Evita el envío del formulario
+              } else {
+                // Envía el mensaje (simula un clic en el botón)
+                sendButton.click();
+                event.preventDefault(); // Evita el salto de línea
+              }
+            }
+          });
         });
     </script>
   </body>

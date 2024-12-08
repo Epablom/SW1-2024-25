@@ -7,7 +7,8 @@ const dbInstance = new Database();
 
 // Registro de usuario
 router.post('/register', async (req, res) => {
-    const { username, email, faculty, degree, password } = req.body;
+    var { username, email, faculty, degree, password } = req.body;
+    email = email.toLowerCase();
 
     try {
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -39,7 +40,8 @@ router.post('/register', async (req, res) => {
 
 // Inicio de sesión
 router.post('/login', async (req, res) => {
-    const { email, password } = req.body;
+    var { email, password } = req.body;
+    email = email.toLowerCase();
 
     try {
         const user = await dbInstance.getUserByEmail(email);
@@ -73,7 +75,8 @@ router.post('/logout', (req, res) => {
 });
 
 router.post('/send-code', async (req, res) => {
-    const { email } = req.body;
+    var { email } = req.body;
+    email = email.toLowerCase();
 
     try {
         const user = await dbInstance.getUserByEmail(email);
@@ -95,7 +98,8 @@ router.post('/send-code', async (req, res) => {
 });
 
 router.post('/reset-password', async (req, res) => {
-    const { email, code, newPassword } = req.body;
+    var { email, code, newPassword } = req.body;
+    email = email.toLowerCase();
 
     if (req.session.code !== code) {
         req.session.error = "Código de verificación incorrecto.";
