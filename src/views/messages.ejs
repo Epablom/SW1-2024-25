@@ -198,7 +198,6 @@
 
         // Receive messages in real-time
         socket.on("receiveMessage", function (message) {
-          console.log("Received message:", message);
           if (
             message.sender === selectedContactId &&
             message.room === currentRoomId
@@ -209,7 +208,6 @@
 
         // Append a message to the chat UI
         function appendMessage(message, isReceived) {
-          console.log("Appending message:", message);
           const messageDiv = document.createElement("div");
           messageDiv.classList.add("message", isReceived ? "sent" : "received");
           messageDiv.textContent = message.content; // Display message content

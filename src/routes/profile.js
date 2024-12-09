@@ -41,7 +41,6 @@ router.get('/', async (req, res) => {
             ...note,
             notesRoute: `${req.protocol}://${req.get('host')}/${note.notesRoute}` // Ruta absoluta
         }));
-        console.log(updatedNotes)
 
         res.render('profile', {
             title: 'Perfil',
@@ -128,7 +127,6 @@ async function updateUser(userId, updates) {
         if (result.modifiedCount === 0) {
             throw new Error('No se actualizó ningún documento');
         }
-        console.log(`Usuario ${userId} actualizado con éxito`);
     } catch (error) {
         console.error('Error actualizando el usuario:', error);
         throw error;

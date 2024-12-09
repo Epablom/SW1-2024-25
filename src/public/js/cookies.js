@@ -20,9 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
       body: JSON.stringify(preferences),
     })
       .then((response) => response.json())
-      .then((data) => {
-        console.log('Preferencias de cookies guardadas:', data);
-      })
       .catch((err) => {
         console.error('Error al guardar preferencias:', err);
       });

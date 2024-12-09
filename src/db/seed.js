@@ -63,8 +63,6 @@ async function seedDatabase(db) {
         { _id: 20, userId: 4, title: "La importancia de la ciberseguridad", docroute: "../images/news/noticias14.jpg", time: new Date(), likes: [2, 5, 6] }
     ];
     
-    
-
     await db.collection("User").insertMany(users);
     await db.collection("Chat").insertMany(chats);
     await db.collection("Message").insertMany(messages);

@@ -27,7 +27,6 @@ router.post('/register', async (req, res) => {
         };
 
         const insert = await dbInstance.insertUser(newUser);
-        console.log("Usuario registrado: ", insert);
         req.session.message = "Usuario registrado con éxito. Por favor, inicia sesión.";
         req.session.mainUser = newUser;
         return res.json({ success: "Usuario registrado con éxito." });
@@ -70,7 +69,6 @@ router.post('/login', async (req, res) => {
 // Cierre de sesión
 router.post('/logout', (req, res) => {
     req.session.destroy();
-    console.log("Sesión cerrada correctamente.");
     return res.json({ success: "Sesión cerrada correctamente." });
 });
 

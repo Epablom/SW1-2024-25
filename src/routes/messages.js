@@ -79,8 +79,6 @@ router.get('/room/:receiverId', async (req, res) => {
 
         // Fetch messages after ensuring room exists
         const messages = await dbInstance.getMessagesByChatId(room._id);
-        console.log(messages)
-
         // Respond with the room ID and messages
         res.status(200).json({
             roomId: room._id.toString(),

@@ -91,18 +91,15 @@ app.use((req, res, next) => {
 
 // Comunicación en tiempo real utilizando socket.io
 io.on("connection", (socket) => {
-  console.log(`Un usuario se conectó: ${socket.id}`);
 
   // Unirse a una sala para mensajería privada (única para cada par usuario-contacto)
   socket.on("joinRoom", (room) => {
     socket.join(room);
-    console.log(`Usuario con ID ${socket.id} se unió a la sala: ${room}`);
   });
 
   // Manejar el envío de un mensaje a una sala específica (mensajería privada)
   socket.on("sendMessage", (data) => {
     const { room, content, sender } = data;
-    console.log(`Mensaje de ${sender} a la sala ${room}: ${content}`);
 
     // Emitir el mensaje a todos los usuarios en la sala
     io.to(room).emit("receiveMessage", {
@@ -114,7 +111,6 @@ io.on("connection", (socket) => {
 
   // Notificar a todos los usuarios cuando alguien se desconecta (limpieza específica de la sala)
   socket.on("disconnect", () => {
-    console.log(`Un usuario se desconectó: ${socket.id}`);
   });
 });
 
