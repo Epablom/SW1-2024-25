@@ -12,7 +12,7 @@ class Database {
         this.client = new MongoClient("mongodb://127.0.0.1:27017");
         this.db = null;
         this.connect();
-        
+        console.log("Database instance created");
         Database.instance = this;
     }
 
