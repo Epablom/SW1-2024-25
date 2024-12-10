@@ -18,7 +18,7 @@
                     <div class="status">
                         <div class="info">
                             <h3>Nuevos apuntes</h3>
-                            <h1>24</h1>
+                            <h1><%= newNotes %></h1>
                         </div>
                         <div class="progresss">
                             <svg>
@@ -41,7 +41,7 @@
                                 <circle cx="38" cy="38" r="36"></circle>
                             </svg>
                             <div class="percentage">
-                                <p>-48%</p>
+                                <p>+48%</p>
                             </div>
                         </div>
                     </div>
@@ -69,46 +69,40 @@
             <br>
                 <h2>Nuevos usuarios</h2>
                 <div class="list">
-                    <div class="user">
-                        <img src="../images/users/1.jpg" alt="User profile image">
-                        <h2>Jack</h2>
-                        <p>54 Min Ago</p>
-                    </div>
-                    <div class="user">
-                        <img src="../images/users/2.jpg" alt="User profile image">
-                        <h2>Paul</h2>
-                        <p>3 Hours Ago</p>
-                    </div>
-                    <div class="user">
-                        <img src="../images/users/3.jpg" alt="User profile image">
-                        <h2>Ember</h2>
-                        <p>6 Hours Ago</p>
-                    </div>
-                    <div class="user">
-                        <img src="../images/users/4.jpg" alt="User profile image">
-                        <h2>Isabel</h2>
-                        <p>1 Day Ago</p>
-                    </div>
+                    <% recentUsers.forEach(user => { %>
+                        <div class="user">
+                            <img src="<%= user.imagelink %>" alt="User profile image">
+                            <h2><%= user.username %></h2>
+                            <p><%= user.email %></p>
+                        </div>
+                    <% }) %>
                 </div>
             <!-- End of New Users Section -->
 
             <!-- Recent Orders Table -->
             <br>
                 <h2>Últimas alertas</h2>
-                <div class="list">
+                <div class="obj-list">
                 <table>
                     <thead>
                         <tr>
                             <th>Nombre de usuario</th>
-                            <th>Publicación reportada</th>
-                            <th>Número de tiquet</th>
+                            <th>Descripción</th>
                             <th>Estado</th>
-                            <th></th>
                         </tr>
                     </thead>
-                    <tbody></tbody>
+                    <tbody id="alertTableBody">
+                        <% alerts.forEach(alert => { %>
+                            <tr>
+                                <td><%= alert.username %></td>
+                                <td><%= alert.description %></td>
+                                <td><%= alert.status %></td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
                 </table>
-                <a href="#">Ver más</a>
+                <a id="loadMoreAlerts" class="btn btn-primary" data-skip="10">Ver más</a>
+
             </div>
             <!-- End of Recent Orders -->
 
@@ -121,9 +115,28 @@
 
 
     </div>
-
-    <script src="../public/js/alertas.js"></script>
-    <script src="../public/js/index.js"></script>
     
 </body>
+
+<script>
+    document.getElementById('loadMoreAlerts').addEventListener('click', async function () {
+        const skip = parseInt(this.getAttribute('data-skip'), 10);
+        const response = await fetch(`/dashboard/alertas/more?skip=${skip}`);
+        const newAlerts = await response.json();
+
+        const alertTableBody = document.getElementById('alertTableBody');
+        newAlerts.forEach(alert => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${alert.username}</td>
+                <td>${alert.description}</td>
+                <td>${alert.status}</td>
+            `;
+            alertTableBody.appendChild(row);
+        });
+
+        this.setAttribute('data-skip', skip + 10);
+    });
+</script>
+
 </html>

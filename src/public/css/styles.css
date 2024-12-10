@@ -282,6 +282,9 @@ aside .sidebar .message-count{
         position: relative;
         margin-top: 1.8rem;
     }
+    .else {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -296,6 +299,10 @@ aside .sidebar .message-count{
         left: -100%;
         display: none;
         animation: showMenu 0.4s ease forwards;
+    }
+
+    .else {
+        display: none;
     }
 
     @keyframes showMenu {

@@ -305,6 +305,54 @@ main .recent-orders a{
     gap: 0.6rem;
 }
 
+.list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    gap: 1.6rem;
+    padding: 0 var(--padding-1);
+}
+
+.user img{
+    border-radius: 50%;
+}
+
+.obj-list{
+    gap: 1.6rem;
+    width: 100%;
+}
+
+.obj-list table{
+    width: 100%;
+    text-align: left;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    border-radius: var(--card-border-radius);
+    transition: all 0.3s ease;
+    padding: var(--card-padding);
+}
+
+.obj-list table:hover{
+    box-shadow: none;
+}
+
+.obj-list a {
+    text-align: center;
+    display: block;
+    margin: 1rem auto;
+    color: var(--color-primary);
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    padding: 1rem var(--card-padding);
+    border-radius: var(--card-border-radius);
+    transition: all 0.3s ease;
+}
+
+.obj-list a:hover{
+    box-shadow: none;
+}
+
 @media screen and (max-width: 1200px) {
     .container{
         width: 95%;

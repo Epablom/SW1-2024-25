@@ -46,7 +46,7 @@ const Models = {
         receiverId: "ObjectId",
         name: "string" // Nombre del chat (opcional, para chats grupales)
     },
-    Report: {
+    Alert: {
         _id: "ObjectId",
         userId: "ObjectId",
         description: "string",

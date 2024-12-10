@@ -1,4 +1,4 @@
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectId } = require('mongodb');
 const initializeDatabase = require('./init');
 
 class Database {
@@ -54,7 +54,25 @@ class Database {
       }         
 
     async getUserById(userId) {
-        return await this.getCollection("User").findOne({ "id": userId });
+        let user = null;
+        try {
+            // Validar si el ID es válido
+            if (!ObjectId.isValid(userId)) {
+                console.error("Invalid userId format");
+                return null;
+            }
+    
+            // Convertir el ID a ObjectId
+            const objectId = new ObjectId(userId);
+    
+            // Hacer la consulta
+            user = await this.getCollection("User").findOne({ "_id": objectId });
+            
+        } catch (error) {
+            console.error("Error fetching user:", error);
+            return null;
+        }
+        return user;
     }
 
     async getUserByEmail(email) {
@@ -87,6 +105,67 @@ class Database {
     async insertChat(chatData) {
         return await this.getCollection("Chat").insertOne(chatData);
     }
+
+    async getRecentAlerts(limit, skip = 0) {
+        var alertas = await this.getCollection('Alert')
+            .find()
+            .sort({ timestamp: -1 })
+            .skip(skip)
+            .limit(limit)
+            .toArray();
+        for (const alerta of alertas) {
+            const user = await this.getUserById(alerta.userId);
+            alerta.username = user ? user.username : 'Unknown';
+        }
+        return alertas;
+    }
+
+    async getUsers(skip = 0, limit = 10) {
+        try {
+            const usersCollection = this.getCollection('User');
+            const alertsCollection = this.getCollection('Alert');
+    
+            // Obtiene los usuarios con skip y limit
+            const users = await usersCollection
+                .find({}, { projection: { username: 1, email: 1 } })
+                .sort({ _id: -1 })
+                .skip(skip)
+                .limit(limit)
+                .toArray();
+    
+            // Añade el número de alertas a cada usuario
+            for (const user of users) {
+                const alertCount = await alertsCollection.countDocuments({ userId: user._id });
+                user.alerts = alertCount; // Añade el campo "alerts" al objeto usuario
+            }
+    
+            return users;
+        } catch (error) {
+            console.error('Error fetching users with alerts:', error);
+            throw error;
+        }
+    }
+
+    async getReportedUsers(skip = 0, limit = 10) {
+        try {
+            const usersCollection = this.getCollection('User');
+    
+            // Obtiene los usuarios con isBanned = true
+            const reportedUsers = await usersCollection
+                .find({ isBanned: true }, { projection: { username: 1, email: 1 } })
+                .sort({ _id: -1 })
+                .skip(skip)
+                .limit(limit)
+                .toArray();
+    
+            return reportedUsers;
+        } catch (error) {
+            console.error('Error fetching reported users:', error);
+            throw error;
+        }
+    }
+    
+    
 }
 
 module.exports = Database;

@@ -10,21 +10,58 @@
         <!-- End of Sidebar Section -->
 
         <!-- Main Content -->
-        <main>
-            <h1>Usuarios Reportados</h1>
+      <main>
+        <h1>Usuarios reportados</h1>
+        <br>
+        <h2>Lista de Usuarios</h2>
+        <div class="obj-list">
+          <table>
+            <thead>
+              <tr>
+                <th>Nombre de usuario</th>
+                <th>Correo</th>
+              </tr>
+            </thead>
+            <tbody id="users">
+              <% reportedUsers.forEach(user => { %>
+                <tr>
+                  <td><%= user.username %></td>
+                  <td><%= user.email %></td>
+                </tr>
+              <% }); %>
+            </tbody>
+          </table>
+          <a id="loadMoreReportedUsers" class="btn btn-primary" data-skip="10">Ver más</a>
 
-            <div id="reported-users-list">
-                <!-- Aquí se generará dinámicamente la lista de usuarios reportados -->
-            </div>
-        </main>
+        </div>
+    </main>
 
         <!-- Right Section -->
         <%- include('partials/rightBar') %>
         <!-- End of right section -->
     </div>
 
-    <script src="../public/js/reportedUsers.js"></script>
-    <script src="../public/js/index.js"></script>
 </body>
+
+<script>
+    document.getElementById('loadMoreReportedUsers').addEventListener('click', async function () {
+        const skip = parseInt(this.getAttribute('data-skip'), 10);
+        const response = await fetch(`/dashboard/reportedUsers/more?skip=${skip}`);
+        const newUsers = await response.json();
+  
+        const userList = document.getElementById('users');
+        newUsers.forEach(user => {
+            const userItem = document.createElement('tr');
+            userItem.innerHTML = `
+                <td>${user.username}</td>
+                <td>${user.email}</td>
+                <td>${user.alerts}</td>
+            `;
+            userList.appendChild(userItem);
+        });
+  
+        this.setAttribute('data-skip', skip + 10);
+    });
+  </script>
 
 </html>
