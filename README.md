@@ -6,11 +6,10 @@ Repositorio para las prácticas en grupo de la asignatura "Sistemas Web 1" de 4�
 
 ## Integrantes del grupo
 - Raquel Cerezo Carrión (GISI + ADE)
-- Elena Yunxin Cores Smith (GISI)
+- Elena Yunxin Cores Smith (GISI + ADE)
 - Martina Galán Ingelmo (GIB)
 - Juan Grima Sánchez (GISI)
 - Carlos Marcos Guillem (GIST + GISI)
-- Eugenio Pablo Murillo Solanas (GISI)
 
 ## Lenguajes y herramientas
 <p align="left">
