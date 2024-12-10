@@ -1,15 +1,32 @@
 // Función para mostrar el formulario de edición
 function editField(fieldId) {
     // Ocultar el elemento de visualización
-    const displayElement = document.getElementById(`${fieldId}-display`);
-    if (displayElement) {
-        displayElement.classList.add('hidden');
-    }
-
-    // Mostrar el formulario correspondiente
-    const formElement = document.getElementById(`${fieldId}-form`);
-    if (formElement) {
-        formElement.classList.remove('hidden');
+    const element = document.getElementById(`${fieldId}`);
+    element.toggleAttribute('contenteditable');
+    
+    if (element.hasAttribute('contenteditable')) {
+        element.focus();
+    } else {
+        // Salió del modo de edición, enviar PUT al servidor
+        let updatedValue = element.innerText.trim();
+        updatedValue = updatedValue.replace('\neditar', '');
+        fetch('/profile', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ field: fieldId, value: updatedValue })
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log('Campo actualizado correctamente');
+            } else {
+                console.error('Error al actualizar el campo');
+            }
+        })
+        .catch(error => {
+            console.error('Error en la solicitud:', error);
+        });
     }
 }
 

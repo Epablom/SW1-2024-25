@@ -86,51 +86,49 @@ router.post('/upload', upload.single('uploadedFile'), async (req, res) => {
         await notesCollection.insertOne(newNote);
 
         res.json({ success: true, note: newNote });
+        return;
     } catch (error) {
         console.error('Error al subir el archivo:', error);
         res.status(500).json({ success: false, message: 'Error al subir el archivo.' });
     }
 });
 
-// Ruta para editar perfil
-router.post('/edit', async (req, res) => {
-    const { username, email, degree, description } = req.body;
-    const userId = req.session.user._id;
+// // Ruta para editar perfil
+// router.post('/edit', async (req, res) => {
+//     const { username, email, degree, description } = req.body;
+//     const userId = req.session.user._id;
+//     try {
+//         const userCollection = db.getCollection("User");
+//         const existingUser = await userCollection.findOne({ _id: new ObjectId(userId) });
+
+//         const updates = {
+//             username: username || existingUser.username,
+//             email: email || existingUser.email,
+//             degree: degree || existingUser.degree,
+//             description: description || existingUser.description
+//         };
+
+//         await updateUser(userId, updates);
+//         Object.assign(req.session.user, updates);
+//         res.redirect('/profile');
+//     } catch (error) {
+//         console.error('Error actualizando el perfil:', error);
+//         res.status(500).send('Error al actualizar el perfil');
+//     }
+// });
+
+router.put('/', async (req, res) => {
+    const { field, value } = req.body; // Obtenemos el campo y su nuevo valor
+    const userId = req.session.mainUser._id;
     try {
-        const userCollection = db.getCollection("User");
-        const existingUser = await userCollection.findOne({ _id: new ObjectId(userId) });
-
-        const updates = {
-            username: username || existingUser.username,
-            email: email || existingUser.email,
-            degree: degree || existingUser.degree,
-            description: description || existingUser.description
-        };
-
-        await updateUser(userId, updates);
+        const updates = { [field]: value };
+        await db.updateUser(userId, updates);
         Object.assign(req.session.user, updates);
-        res.redirect('/profile');
+        res.json({ success: true });
     } catch (error) {
         console.error('Error actualizando el perfil:', error);
-        res.status(500).send('Error al actualizar el perfil');
+        res.status(500).json({ success: false });
     }
 });
-
-async function updateUser(userId, updates) {
-    try {
-        const userCollection = db.getCollection("User");
-        const objectId = new ObjectId(userId);
-        const result = await userCollection.updateOne(
-            { _id: objectId },
-            { $set: updates }
-        );
-        if (result.modifiedCount === 0) {
-            throw new Error('No se actualizó ningún documento');
-        }
-    } catch (error) {
-        console.error('Error actualizando el usuario:', error);
-        throw error;
-    }
-}
 
 module.exports = router;

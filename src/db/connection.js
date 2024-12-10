@@ -164,6 +164,29 @@ class Database {
             throw error;
         }
     }
+
+    async updateUser(userId, updates) {
+        try {
+            const userCollection = this.getCollection("User");
+            const objectId = new ObjectId(userId);
+            const result = await userCollection.updateOne(
+                { _id: objectId },
+                { $set: updates }
+            );
+            
+            if (result.matchedCount === 0) {
+                throw new Error('Usuario no encontrado');
+            }
+            if (result.modifiedCount === 0) {
+                console.warn('No se realizaron cambios en el usuario');
+            }
+    
+            return true; // Actualización exitosa
+        } catch (error) {
+            console.error('Error en updateUser:', error);
+            throw error; // Re-lanzar el error para manejarlo donde se invoque
+        }
+    }
     
     
 }

@@ -13,71 +13,45 @@
         <main>
             <!-- User Info Section -->
             <h1>Tu perfil</h1>
-            <div class="profile">
+            <div class="my-profile">
                 <!-- Información del usuario -->
                 <div class="row">
                     <div class="img-container">
-                        <img src="../images/users/1.jpg" alt="Foto de perfil">
+                        <a onclick="editField('profile-img')"><img class="profile-pic" src="../images/users/1.jpg" alt="Foto de perfil"></a>
                         <span class="material-icons-sharp edit-icon edit-img-icon" onclick="editField('profile-img')">editar</span>
                     </div>
-                </div>
-                  <!--ESTO NO FUNCIONA!-->
-                  <div id="profile-img-display" class="hidden">
-                    <form id="profile-img-form" class="edit-form" method="POST" action="/profile/edit" enctype="multipart/form-data">
-                        <input type="file" name="profileImage" accept="image/*">
-                        <button type="submit">Guardar</button>
-                        <button type="button" onclick="cancelEdit('profile-img')">Cancelar</button>
-                    </form>
-                </div>
-                <div class="text-container">
+                    <div class="text-container">
                     <!-- Username -->
-                    <p id="username-display">
+                    <div id="username"><p>
                         <%= mainUser.username %>
                         <span class="material-icons-sharp edit-icon" onclick="editField('username')">editar</span>
-                    </p>
-                    <form id="username-form" class="edit-form hidden" method="POST" action="/profile/edit">
-                        <input type="text" name="username" value="<%= mainUser.username %>">
-                        <button type="submit">Guardar</button>
-                        <button type="button" onclick="cancelEdit('username')">Cancelar</button>
-                    </form>
-                </div>
-                <div class="row">
-                    <!-- Email -->
-                    <p id="email-display">
+                    </p></div>
+                    <div id="email"><p>
                         <%= mainUser.email %>
                         <span class="material-icons-sharp edit-icon" onclick="editField('email')">editar</span>
-                    </p>
-                    <form id="email-form" class="edit-form hidden" method="POST" action="/profile/edit">
-                        <input type="email" name="email" value="<%= mainUser.email %>">
-                        <button type="submit">Guardar</button>
-                        <button type="button" onclick="cancelEdit('email')">Cancelar</button>
-                    </form>
+                    </p></div>
+                </div>
+                </div>
+
+                <br>
+                <div class="extra-row">
                     <!-- Degree -->
-                    <p id="degree-display">
+                    <div id="degree"><p>
                         <%= mainUser.degree %>
                         <span class="material-icons-sharp edit-icon" onclick="editField('degree')">editar</span>
-                    </p>
-                    <form id="degree-form" class="edit-form hidden" method="POST" action="/profile/edit">
-                        <input type="text" name="degree" value="<%= mainUser.degree %>">
-                        <button type="submit">Guardar</button>
-                        <button type="button" onclick="cancelEdit('degree')">Cancelar</button>
-                    </form>
+                    </p></div>
                     <!-- Description -->
-                    <p id="description-display" class="description">
+                    <div id="description"><p>
                         <%= mainUser.description %>
                         <span class="material-icons-sharp edit-icon" onclick="editField('description')">editar</span>
-                    </p>
-                    <form id="description-form" class="edit-form hidden" method="POST" action="/profile/edit">
-                        <textarea name="description" rows="3"><%= mainUser.description %></textarea>
-                        <button type="submit">Guardar</button>
-                        <button type="button" onclick="cancelEdit('description')">Cancelar</button>
-                    </form>
+                    </p></div>
                 </div>
             </div>
             <!-- Sección de publicaciones -->
             <div class="options">
-                <h2 class="active">Tus publicaciones</h2>
                 <div class="file-upload-section">
+                    <h2 class="active">Subir apuntes</h2>
+                    <br>
                     <!-- Formulario para subir nuevos archivos -->
                     <form id="upload-file-form" enctype="multipart/form-data">
                         <input type="file" name="uploadedFile" id="uploadedFile" required>
@@ -92,20 +66,20 @@
                 </div>
                 <br>
                 <div class="list" id="file-list">
+                    <div class="file-item"><h2>Mis apuntes</h2>
                     <!-- Lista de archivos subidos -->
                     <% uploadedNotes.forEach(function(note) { %>
-                        <div class="file-item">
+                        
                             <h3><%= note.title %> - <%= note.degree %></h3>
-                            <p><strong>Materia:</strong> <%= note.subject %></p>
-                            <p><strong>Año:</strong> <%= note.year %></p>
-                            <p><strong>Descripción:</strong> <%= note.description %></p>
-                            <p><strong>Precio:</strong> €<%= note.price %></p>
+                            <p><strong>Materia: </strong> <%= note.subject %></p>
+                            <p><strong>Año: </strong> <%= note.year %></p>
+                            <p><strong>Descripción: </strong> <%= note.description %></p>
+                            <p><strong>Precio: </strong> €<%= note.price %></p>
                             <a href="<%= note.notesRoute %>" download>Descargar</a>
                         </div>
                     <% }); %>
                 </div>
-                <h2>Apuntes comprados</h2>
-                <h2>Publicaciones guardadas</h2>
+                
             </div>
             <br>
             <div class="list">
