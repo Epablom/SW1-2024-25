@@ -13,7 +13,6 @@ class Database {
         this.db = null;
         this.connect();
         console.log("Database instance created");
-        console.log(this.db.getCollection("User"));
         Database.instance = this;
     }
 
