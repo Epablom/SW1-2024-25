@@ -72,9 +72,6 @@
 }
 
 .options h2.active {
-  color: var(--color-primary);
-  background-color: var(--color-light);
-  box-shadow: var(--box-shadow);
   border-radius: 10px;
 }
 
@@ -237,4 +234,48 @@
 
 .list .file-item a:hover {
   color: #155724;
+}
+
+.file-upload-section {
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: var(--color-white);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.file-upload-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.file-upload-section input,
+.file-upload-section textarea,
+.file-upload-section button {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.file-upload-section input:focus,
+.file-upload-section textarea:focus,
+.file-upload-section button:focus {
+  border-color: var(--color-primary);
+  box-shadow: var(--box-shadow)
+}
+
+.file-upload-section button {
+  background-color: var(--color-primary);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.file-upload-section button:hover {
+  background-color: #0056b3;
 }
