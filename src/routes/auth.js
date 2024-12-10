@@ -99,15 +99,19 @@ router.post('/reset-password', async (req, res) => {
     var { email, code, newPassword } = req.body;
     email = email.toLowerCase();
 
-    if (req.session.code !== code) {
+    console.log(req.session.code, code);
+    console.log(req.session.code == code);
+
+    if (req.session.code == code) {
+        req.session.message = "Código de verificación correcto.";
+    } else {
         req.session.error = "Código de verificación incorrecto.";
         return res.json({ error: "Código de verificación incorrecto." });
     }
-
-    req.session.message = "Código de verificación correcto.";
+    
 
     try {
-        dbInstance.updatePasswordByEmail(email, newPassword);
+        dbInstance.updatePassword(email, newPassword);
     } catch (error) {
         console.error("Error actualizando la contraseña:", error);
         req.session.error = "Hubo un problema al actualizar la contraseña. Inténtalo de nuevo.";

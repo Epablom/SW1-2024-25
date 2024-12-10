@@ -1,5 +1,6 @@
 const { MongoClient, ObjectId } = require('mongodb');
 const initializeDatabase = require('./init');
+const bcrypt = require('bcrypt');
 
 class Database {
     static instance = null;
@@ -187,6 +188,30 @@ class Database {
             throw error; // Re-lanzar el error para manejarlo donde se invoque
         }
     }
+
+    async updatePassword(email, newPassword) {
+        try {
+            const hashedPassword = await bcrypt.hash(newPassword, 10);
+            const userCollection = this.getCollection("User");
+            const result = await userCollection.updateOne(
+                { email },
+                { $set: { password: hashedPassword } }
+            ); 
+            
+            if (result.matchedCount === 0) {
+                throw new Error('Usuario no encontrado');
+            }
+            if (result.modifiedCount === 0) {
+                console.warn('No se realizaron cambios en el usuario');
+            }
+    
+            return true; // Actualización exitosa
+        } catch (error) {
+            console.error('Error en updatePassword:', error);
+            throw error; // Re-lanzar el error para manejarlo donde se invoque
+        }
+    }
+
     
     
 }

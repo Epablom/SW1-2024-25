@@ -67,8 +67,8 @@
         <button type="button" id="send-code">Enviar Código</button>
         <hr>
         <input name="code" type="text" placeholder="Código" disabled>
-        <input name="new-password" type="password" placeholder="Nueva Contraseña" disabled>
-        <input name="confirm-password" type="password" placeholder="Confirmar Contraseña" disabled>
+        <input name="newPassword" type="password" placeholder="Nueva Contraseña" disabled>
+        <input name="confirmPassword" type="password" placeholder="Confirmar Contraseña" disabled>
         <button type="button" id="reset-btn" disabled>Restablecer Contraseña</button>
     </form>
 </div>
@@ -168,9 +168,15 @@
         resetPasswordForm.email.focus();
         resetPasswordForm.email.removeAttribute('disabled');
         sendCodeButton.removeAttribute('disabled');
-        resetPasswordForm.code.setAttribute('disabled', true);
-        resetPasswordForm.newPassword.setAttribute('disabled', true);
-        resetPasswordForm.confirmPassword.setAttribute('disabled', true);
+        console.log(resetPasswordForm.email);
+        console.log(resetPasswordForm.code);
+        console.log(resetPasswordForm.newPassword);
+        console.log(resetPasswordForm.email.addAttribute);
+        console.log(resetPasswordForm.code.addAttribute);
+        console.log(resetPasswordForm.newPassword.addAttribute);
+        resetPasswordForm.code.setAttribute('disabled','');
+        resetPasswordForm.newPassword.setAttribute('disabled','');
+        resetPasswordForm.confirmPassword.setAttribute('disabled','');
     });
 
     // Enviar código
@@ -192,10 +198,8 @@
             resetPasswordForm.confirmPassword.removeAttribute('disabled');
             resetButton.removeAttribute('disabled');
             resetPasswordForm.code.focus();
-            resetPasswordForm.email.addAttribute('disabled');
-            sendCodeButton.addAttribute('disabled');
-            resetPasswordPanel.classList.remove('show');
-            loginPanel.classList.add('show');
+            resetPasswordForm.email.setAttribute('disabled','');
+            sendCodeButton.setAttribute('disabled','');
         } else {
             alert(result.error);
         }
@@ -224,8 +228,8 @@
         const result = await response.json();
         if (result.success) {
             alert(result.success);
-            resetPasswordPanel.classList.add('hide');
-            loginPanel.classList.remove('hide');
+            resetPasswordPanel.classList.remove('show');
+            loginPanel.classList.add('show');
         } else {
             alert(result.error);
         }
