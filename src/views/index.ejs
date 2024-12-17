@@ -25,10 +25,10 @@
         
         <div class="top-section" id="contactBar">
           <% users.forEach(user => { %>
-            <div class="tutor">
+            <a href="/resources"><div class="tutor">
               <img src="<%= user.imagelink %>" alt="<%= user.username %>">
               <p><%= user.username %></p>
-            </div>
+            </div></a>
           <% }) %>
         </div>
         
